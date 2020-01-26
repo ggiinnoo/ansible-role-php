@@ -1,0 +1,8 @@
+---
+
+# Include checks task
+- import_tasks: checks.yml
+
+# Add remi repo using my own role
+- name: Include centos task
+  include_tasks: centos.yml

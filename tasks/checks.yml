@@ -1,0 +1,13 @@
+---
+
+# Check whether nginx or apache is already installed
+- name: Check if apache is already installed
+  yum:
+    list: "httpd"
+  register: httpdStatus
+
+# Check whether nginx or apache is already installed
+- name: Check if nginx is already installed
+  yum:
+    list: "nginx"
+  register: nginxStatus

@@ -1,0 +1,32 @@
+# {{ ansible_managed }}
+[www]
+
+user = {{ fpmUser | default ("apache") }}
+group = {{ fpmGroup | default ("apache") }}
+
+listen.owner = {{ fpmListenOwner | default ("nobody") }}
+listen.group = {{ fpmListenGroup | default ("nobody") }}
+listen.mode = {{ fpmListenMode | default ("0660") }}
+
+listen = {{ fpmSock | default("/var/run/php56-fpm.sock") }}
+
+listen.allowed_clients = {{ fpmListenAllowedClients | default ("127.0.0.1") }}
+
+pm = {{ fpmPm | default ("dynamic") }}
+pm.max_children = {{ fpmMaxChild | default ("50") }}
+pm.start_servers = {{ fpmStartServers | default ("5") }}
+pm.min_spare_servers = {{ fpmMinSpareServers | default ("5") }}
+pm.max_spare_servers = {{ fpmMaxSpareServers | default ("35") }}
+
+{% if fpmStatusPath is defined %}
+pm.status_path = {{ fpmStatusPath }}
+{% endif %}
+
+slowlog = {{ fpmSlowLog | default ("/opt/remi/php56/root/var/log/php-fpm/www-slow.log") }}
+
+php_admin_value[error_log] = {{ fpmErrorLog | default ("/opt/remi/php56/root/var/log/php-fpm/www-error.log") }}
+php_admin_flag[log_errors] = on
+
+php_value[session.save_handler] = {{ fpmSessionSaveHandler | default ("files") }}
+php_value[session.save_path]    = {{ fpmSessionsavePath | default ("/opt/remi/php56/root/var/lib/php/session") }}
+php_value[soap.wsdl_cache_dir]  = {{ fpmSessionSaveCache | default ("/opt/remi/php56/root/var/lib/php/wsdlcache") }}

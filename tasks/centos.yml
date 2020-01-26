@@ -1,0 +1,106 @@
+---
+
+- name: Create folder
+  file:
+    mode: "0755"
+    path: "{{ cgiBinLocation }}"
+    state: "directory"
+
+- name: config remi repo
+  include_role:
+    name: "ggiinnoo.remi_repo"
+  vars:
+    remiCentosRepoList:
+      - name: "{{ item }}"
+        state: enable
+  with_items:
+    - "{{ remiRepo }}"
+
+- name: Generate full list to install
+  set_fact:
+    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) }}"
+
+- name: Install php items
+  yum:
+    name: "{{ item }}"
+    state: "installed"
+  with_items:
+    - "{{ phpItems }}"
+
+# setup/config fpm
+- name: php 56 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate56 }}", dest: "{{ fpmConfLocation56 }}"}
+    - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpiniConfLocation56 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ fpmWrapperLocation56 }}"}
+  when: php56 is defined
+
+- name: php 70 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate70 }}", dest: "{{ fpmConfLocation70 }}"}
+    - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpiniConfLocation70 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ fpmWrapperLocation70 }}"}
+  when: php70 is defined
+
+- name: php 71 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate71 }}", dest: "{{ fpmConfLocation71 }}"}
+    - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpiniConfLocation71 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ fpmWrapperLocation71 }}"}
+  when: php71 is defined
+
+- name: php 72 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate72 }}", dest: "{{ fpmConfLocation72 }}"}
+    - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpiniConfLocation72 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ fpmWrapperLocation72 }}"}
+  when: php72 is defined
+
+- name: php 73 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate73 }}", dest: "{{ fpmConfLocation73 }}"}
+    - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpiniConfLocation73 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ fpmWrapperLocation73 }}"}
+  when: php73 is defined
+
+- name: php 74 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate74 }}", dest: "{{ fpmConfLocation74 }}"}
+    - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpiniConfLocation74 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ fpmWrapperLocation74 }}"}
+  when: php74 is defined
+
+# script wrapper files permissions
+- name: Set permissions wrapper script's
+  file:
+    path: "{{ cgiBinLocation }}"
+    mode: "0755"
+    recurse: "true"
+    state: "directory"
+
+# php.conf
+- name: Apache php.conf file
+  template:
+    dest: "{{ httpdPHPConfLocation }}"
+    src: "{{ httpdPHPConfLocationTemplate }}"
+  when:
+    - nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
+    - httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length != 0

@@ -1,0 +1,10 @@
+---
+
+# Remi repo
+- src: ggiinnoo.remi_repo
+
+# from git
+- src: git@github.com:ggiinnoo/ansible-role-webserver.git
+  scm: git
+  version: 1.0.0
+  name: ggiinnoo.webserver
