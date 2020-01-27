@@ -4,9 +4,15 @@ ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
 # Default php handler
 {% if php56 is defined and php56.default == true %}AddHandler php56-fcgi .php{% endif %}
 
+
 {% if php56 is defined %}Action php56-fcgi /cgi-bin/php56.fcgi{% endif %}
+
 {% if php70 is defined %}Action php56-fcgi /cgi-bin/php70.fcgi{% endif %}
+
 {% if php71 is defined %}Action php56-fcgi /cgi-bin/php71.fcgi{% endif %}
+
 {% if php72 is defined %}Action php56-fcgi /cgi-bin/php72.fcgi{% endif %}
+
 {% if php73 is defined %}Action php56-fcgi /cgi-bin/php73.fcgi{% endif %}
+
 {% if php74 is defined %}Action php56-fcgi /cgi-bin/php74.fcgi{% endif %}
