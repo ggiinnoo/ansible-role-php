@@ -96,7 +96,7 @@
     recurse: "true"
     state: "directory"
 
-# php.conf
+# php conf tempalte for apache
 - name: Apache php.conf file
   template:
     dest: "{{ httpdPHPConfLocation }}"
@@ -104,3 +104,12 @@
   when:
     - nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
     - httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length != 0
+
+# php conf template for nginx
+- name: Nginx php.conf file
+  template:
+    dest: "{{ httpdPHPConfLocation }}"
+    src: "{{ httpdPHPConfLocationTemplate }}"
+  when:
+    - nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length != 0
+    - httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0

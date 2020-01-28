@@ -1,0 +1,27 @@
+# {{ ansible_managed }}
+server{
+	location ~ .php$ {
+		try_files $uri $uri/ /index.php?$args;
+		fastcgi_index index.php;
+		{% if php74 is defined %}
+		fastcgi_pass unix:/var/run/php74-fpm.sock;
+		{% elif php73 is defined %}
+		fastcgi_pass unix:/var/run/php73-fpm.sock;
+		{% elif php72 is defined %}
+		fastcgi_pass unix:/var/run/php72-fpm.sock;
+		{% elif php71 is defined %}
+		fastcgi_pass unix:/var/run/php71-fpm.sock;
+		{% elif php70 is defined %}
+		fastcgi_pass unix:/var/run/php70-fpm.sock;
+		{% elif php56 is defined %}
+		fastcgi_pass unix:/var/run/php56-fpm.sock;
+		{% endif %}
+		fastcgi_ignore_client_abort on;
+		fastcgi_read_timeout 1200;
+		fastcgi_send_timeout 1200;
+		include fastcgi_params;
+		fastcgi_param PATH_INFO $fastcgi_path_info;
+		fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+		fastcgi_param DOCUMENT_ROOT $realpath_root;
+	}
+}
