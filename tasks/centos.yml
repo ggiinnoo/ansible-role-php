@@ -37,6 +37,7 @@
     - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpiniConfLocation56 }}"}
     - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ fpmWrapperLocation56 }}"}
   when: php56 is defined
+  notify: php56Service
 
 - name: php 70 template's
   template:
@@ -47,6 +48,7 @@
     - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpiniConfLocation70 }}"}
     - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ fpmWrapperLocation70 }}"}
   when: php70 is defined
+  notify: php70Service
 
 - name: php 71 template's
   template:
@@ -57,6 +59,7 @@
     - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpiniConfLocation71 }}"}
     - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ fpmWrapperLocation71 }}"}
   when: php71 is defined
+  notify: php71Service
 
 - name: php 72 template's
   template:
@@ -67,6 +70,7 @@
     - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpiniConfLocation72 }}"}
     - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ fpmWrapperLocation72 }}"}
   when: php72 is defined
+  notify: php72Service
 
 - name: php 73 template's
   template:
@@ -77,6 +81,7 @@
     - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpiniConfLocation73 }}"}
     - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ fpmWrapperLocation73 }}"}
   when: php73 is defined
+  notify: php73Service
 
 - name: php 74 template's
   template:
@@ -87,6 +92,7 @@
     - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpiniConfLocation74 }}"}
     - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ fpmWrapperLocation74 }}"}
   when: php74 is defined
+  notify: php74Service
 
 # script wrapper files permissions
 - name: Set permissions wrapper script's
