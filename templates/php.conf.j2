@@ -1,6 +1,4 @@
 # {{ ansible_managed }}
-ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
-
 # Default php handler
 {% if php56 is defined and php56.default == true %}AddHandler php56-fcgi .php{% endif %}
 

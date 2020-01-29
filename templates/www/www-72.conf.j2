@@ -1,32 +1,32 @@
 ; {{ ansible_managed }}
 [www]
 
-user = {{ fpmUser | default ("apache") }}
-group = {{ fpmGroup | default ("apache") }}
+user = {{ php72.fpm.fpmUser | default ("apache") }}
+group = {{ php72.fpm.fpmGroup | default ("apache") }}
 
-listen.owner = {{ fpmListenOwner | default ("nobody") }}
-listen.group = {{ fpmListenGroup | default ("nobody") }}
-listen.mode = {{ fpmListenMode | default ("0660") }}
+listen.owner = {{ php72.fpm.fpmListenOwner | default ("nobody") }}
+listen.group = {{ php72.fpm.fpmListenGroup | default ("nobody") }}
+listen.mode = {{ php72.fpm.fpmListenMode | default ("0660") }}
 
-listen = {{ fpmSock | default("/var/run/php72-fpm.sock") }}
+listen = {{ php72.fpm.fpmSock | default("/var/run/php72-fpm.sock") }}
 
-listen.allowed_clients = {{ fpmListenAllowedClients | default ("127.0.0.1") }}
+listen.allowed_clients = {{ php72.fpm.fpmListenAllowedClients | default ("127.0.0.1") }}
 
-pm = {{ fpmPm | default ("dynamic") }}
-pm.max_children = {{ fpmMaxChild | default ("50") }}
-pm.start_servers = {{ fpmStartServers | default ("5") }}
-pm.min_spare_servers = {{ fpmMinSpareServers | default ("5") }}
-pm.max_spare_servers = {{ fpmMaxSpareServers | default ("35") }}
+pm = {{ php72.fpm.fpmPm | default ("dynamic") }}
+pm.max_children = {{ php72.fpm.fpmMaxChild | default ("50") }}
+pm.start_servers = {{ php72.fpm.fpmStartServers | default ("5") }}
+pm.min_spare_servers = {{ php72.fpm.fpmMinSpareServers | default ("5") }}
+pm.max_spare_servers = {{ php72.fpm.fpmMaxSpareServers | default ("35") }}
 
 {% if fpmStatusPath is defined %}
 pm.status_path = {{ fpmStatusPath }}
 {% endif %}
 
-slowlog = {{ fpmSlowLog | default ("/opt/remi/php72/root/var/log/php-fpm/www-slow.log") }}
+slowlog = {{ php72.fpm.fpmSlowLog | default ("/opt/remi/php72/root/var/log/php-fpm/www-slow.log") }}
 
-php_admin_value[error_log] = {{ fpmErrorLog | default ("/opt/remi/php72/root/var/log/php-fpm/www-error.log") }}
+php_admin_value[error_log] = {{ php72.fpm.fpmErrorLog | default ("/opt/remi/php72/root/var/log/php-fpm/www-error.log") }}
 php_admin_flag[log_errors] = on
 
-php_value[session.save_handler] = {{ fpmSessionSaveHandler | default ("files") }}
-php_value[session.save_path]    = {{ fpmSessionsavePath | default ("/opt/remi/php72/root/var/lib/php/session") }}
-php_value[soap.wsdl_cache_dir]  = {{ fpmSessionSaveCache | default ("/opt/remi/php72/root/var/lib/php/wsdlcache") }}
+php_value[session.save_handler] = {{ php72.fpm.fpmSessionSaveHandler | default ("files") }}
+php_value[session.save_path]    = {{ php72.fpm.fpmSessionsavePath | default ("/opt/remi/php72/root/var/lib/php/session") }}
+php_value[soap.wsdl_cache_dir]  = {{ php72.fpm.fpmSessionSaveCache | default ("/opt/remi/php72/root/var/lib/php/wsdlcache") }}
