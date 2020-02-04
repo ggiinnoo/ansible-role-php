@@ -26,8 +26,8 @@ php56:
     fpmMinSpareServers: 2
     fpmMaxSpareServers: 35
     fpmStatusPath: "/status"
-    fpmSlowLog: /opt/remi/php56/root/var/log/php-fpm/www-slow.log
-    fpmErrorLog: /opt/remi/php56/root/var/log/php-fpm/www-error.log
+    fpmSlowLog: "{{ fpmPhp56LogLocation }}/www-slow.log"
+    fpmErrorLog: "{{ fpmPhp56LogLocation }}/www-error.log"
     fpmSessionSaveHandler: files
     fpmSessionsavePath: /opt/remi/php56/root/var/lib/php/session
     fpmSessionSaveCache: /opt/remi/php56/root/var/lib/php/wsdlcache
@@ -92,6 +92,14 @@ httpdPHPConfLocationTemplate: "{{ role_path }}/templates/php.conf.j2"
 # php.conf location for nginx
 nginxPHPConfLocation: /etc/nginx/conf.d/php.conf
 nginxPHPConfLocationTemplate: "{{ role_path }}/templates/php-nginx.conf.j2"
+
+# Log folder location's
+fpmPhp56LogLocation: "/var/log/php-fpm56/"
+fpmPhp70LogLocation: "/var/log/php-fpm70/"
+fpmPhp71LogLocation: "/var/log/php-fpm71/"
+fpmPhp72LogLocation: "/var/log/php-fpm72/"
+fpmPhp73LogLocation: "/var/log/php-fpm73/"
+fpmPhp74LogLocation: "/var/log/php-fpm74/"
 
 # cgi bin location
 cgiBinLocation: "/var/www/cgi-bin"
