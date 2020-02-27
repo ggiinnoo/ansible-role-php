@@ -1,7 +1,7 @@
 Setup php versions using remi
 =========
 
-This playbook allows you to install multiple php versions
+This playbook allows you to install multiple php versions. With seperate confs.
 
 TODO
 ----
