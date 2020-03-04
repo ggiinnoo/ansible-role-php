@@ -149,6 +149,18 @@
     - "{{ fpmPhp74LogLocation }}"
   when: webService == "httpd"
 
+- name: Create php session folder httpd
+  file:
+   group: "apache"
+   owner: "apache"
+   mode: "0755"
+   path: "{{ item }}"
+   state: "directory"
+  with_items:
+    - "/var/lib/php/session"
+    - "/var/lib/php/wsdlcache"
+  when: webService == "httpd"
+
 - name: Create log directories nginx
   file:
    group: "nginx"
@@ -163,4 +175,16 @@
     - "{{ fpmPhp72LogLocation }}"
     - "{{ fpmPhp73LogLocation }}"
     - "{{ fpmPhp74LogLocation }}"
+  when: webService == "nginx"
+
+- name: Create php session folder nginx
+  file:
+   group: "nginx"
+   owner: "nginx"
+   mode: "0755"
+   path: "{{ item }}"
+   state: "directory"
+  with_items:
+    - "/var/lib/php/session"
+    - "/var/lib/php/wsdlcache"
   when: webService == "nginx"

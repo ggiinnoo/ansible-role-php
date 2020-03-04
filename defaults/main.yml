@@ -29,8 +29,8 @@ php56:
     fpmSlowLog: "{{ fpmPhp56LogLocation }}/www-slow.log"
     fpmErrorLog: "{{ fpmPhp56LogLocation }}/www-error.log"
     fpmSessionSaveHandler: files
-    fpmSessionsavePath: /opt/remi/php56/root/var/lib/php/session
-    fpmSessionSaveCache: /opt/remi/php56/root/var/lib/php/wsdlcache
+    fpmSessionsavePath: /var/lib/php/session
+    fpmSessionSaveCache: /var/lib/php/wsdlcache
   default: true
 
 remiRepo:
