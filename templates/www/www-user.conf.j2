@@ -1,0 +1,13 @@
+; {{ ansible_managed }}
+[{{ item.name }}]
+user = {{ item.name }}
+group = {{ item.name }}
+
+listen.owner = {{ item.name }}
+listen.group = {{ webService }}
+listen.mode = 0660
+listen = /var/run/{{ phpversion }}-fpm-{{ item.name }}.sock
+
+pm = ondemand
+pm.max_children = 100
+pm.status_path = /phpfpm-status
