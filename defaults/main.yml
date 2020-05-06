@@ -14,7 +14,7 @@ php56:
     - php56-runtime
   fpm:
     fpmUser: apache
-    fpmgroup: apache
+    fpmGroup: apache
     fpmListenOwner: apache
     fpmListenGroup: apache
     fpmListenMode: 0660
@@ -52,6 +52,18 @@ fpmConfLocationTemplate71: "{{ role_path }}/templates/www/www-71.conf.j2"
 fpmConfLocationTemplate72: "{{ role_path }}/templates/www/www-72.conf.j2"
 fpmConfLocationTemplate73: "{{ role_path }}/templates/www/www-73.conf.j2"
 fpmConfLocationTemplate74: "{{ role_path }}/templates/www/www-74.conf.j2"
+
+# fpm template location user
+fpmConfLocationTemplateUser: "{{ role_path }}/templates/www/www-user.conf.j2"
+
+# php-fpm.d locations
+fpmDLocation56: /etc/opt/remi/php56/php-fpm.d
+fpmDLocation70: /etc/opt/remi/php70/php-fpm.d
+fpmDLocation71: /etc/opt/remi/php71/php-fpm.d
+fpmDLocation72: /etc/opt/remi/php72/php-fpm.d
+fpmDLocation73: /etc/opt/remi/php73/php-fpm.d
+fpmDLocation74: /etc/opt/remi/php74/php-fpm.d
+
 
 # php.ini locations
 phpiniConfLocation56: /etc/opt/remi/php56/php.ini

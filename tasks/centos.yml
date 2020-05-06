@@ -94,6 +94,12 @@
   when: php74 is defined
   notify: php74Service
 
+# Include user config
+- name: Include user config
+  include_tasks: centos-user.yml
+  when:
+    - Users is defined
+
 # script wrapper files permissions
 - name: Set permissions wrapper script's
   file:
@@ -135,11 +141,11 @@
 
 - name: Create log directories httpd
   file:
-   group: "apache"
-   owner: "apache"
-   mode: "0755"
-   path: "{{ item }}"
-   state: "directory"
+    group: "apache"
+    owner: "apache"
+    mode: "0755"
+    path: "{{ item }}"
+    state: "directory"
   with_items:
     - "{{ fpmPhp56LogLocation }}"
     - "{{ fpmPhp70LogLocation }}"
@@ -151,11 +157,11 @@
 
 - name: Create php session folder httpd
   file:
-   group: "apache"
-   owner: "apache"
-   mode: "0755"
-   path: "{{ item }}"
-   state: "directory"
+    group: "apache"
+    owner: "apache"
+    mode: "0755"
+    path: "{{ item }}"
+    state: "directory"
   with_items:
     - "/var/lib/php/session"
     - "/var/lib/php/wsdlcache"
@@ -163,11 +169,11 @@
 
 - name: Create log directories nginx
   file:
-   group: "nginx"
-   owner: "nginx"
-   mode: "0755"
-   path: "{{ item }}"
-   state: "directory"
+    group: "nginx"
+    owner: "nginx"
+    mode: "0755"
+    path: "{{ item }}"
+    state: "directory"
   with_items:
     - "{{ fpmPhp56LogLocation }}"
     - "{{ fpmPhp70LogLocation }}"
@@ -179,11 +185,11 @@
 
 - name: Create php session folder nginx
   file:
-   group: "nginx"
-   owner: "nginx"
-   mode: "0755"
-   path: "{{ item }}"
-   state: "directory"
+    group: "nginx"
+    owner: "nginx"
+    mode: "0755"
+    path: "{{ item }}"
+    state: "directory"
   with_items:
     - "/var/lib/php/session"
     - "/var/lib/php/wsdlcache"

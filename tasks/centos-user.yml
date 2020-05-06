@@ -1,0 +1,62 @@
+---
+
+# setup/config fpm
+- name: php 56 template pool
+  template:
+    dest: "{{ fpmDLocation56 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php56
+  loop: "{{ Users }}"
+  when: php56 is defined
+  notify: php56Service
+
+- name: php 70 template pool
+  template:
+    dest: "{{ fpmDLocation70 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php70
+  loop: "{{ Users }}"
+  when: php70 is defined
+  notify: php70Service
+
+- name: php 71 template pool
+  template:
+    dest: "{{ fpmDLocation71 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php71
+  loop: "{{ Users }}"
+  when: php71 is defined
+  notify: php71Service
+
+- name: php 72 template pool
+  template:
+    dest: "{{ fpmDLocation72 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php72
+  loop: "{{ Users }}"
+  when: php72 is defined
+  notify: php72Service
+
+- name: php 73 template pool
+  template:
+    dest: "{{ fpmDLocation73 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php73
+  loop: "{{ Users }}"
+  when: php73 is defined
+  notify: php73Service
+
+- name: php 74 template pool
+  template:
+    dest: "{{ fpmDLocation74 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php74
+  loop: "{{ Users }}"
+  when: php74 is defined
+  notify: php74Service

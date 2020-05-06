@@ -1,0 +1,12 @@
+; {{ ansible_managed }}
+[{{ item.name }}]
+user = {{ item.name }}
+group = {{ item.name }}
+
+listen.owner = {{ item.name }}
+listen.group = {{ webService }}
+listen = /etc/opt/remi/{{ phpversion }}/php-fpm.d/{{ item.name }}.sock
+
+pm = ondemand
+pm.max_children = 100
+pm.status_path = /phpfpm-status
