@@ -5,7 +5,8 @@ group = {{ item.name }}
 
 listen.owner = {{ item.name }}
 listen.group = {{ webService }}
-listen = /etc/opt/remi/{{ phpversion }}/php-fpm.d/{{ item.name }}.sock
+listen.mode = 0660
+listen = /var/run/{{ phpversion }}-fpm-{{ item.name }}.sock
 
 pm = ondemand
 pm.max_children = 100
