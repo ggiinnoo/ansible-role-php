@@ -4,8 +4,9 @@ user = {{ item.name }}
 group = {{ item.name }}
 
 listen.owner = {{ item.name }}
-{% if "httpd" in webService %} listen.group = apache {% endif %}
-{% if "nginx" in webService %} listen.group = nginx {% endif %}
+{% if "httpd" in webService %}listen.group = apache{% endif %}
+{% if "nginx" in webService %}listen.group = nginx{% endif %}
+
 listen.mode = 0660
 listen = /var/run/{{ phpversion }}-fpm-{{ item.name }}.sock
 
