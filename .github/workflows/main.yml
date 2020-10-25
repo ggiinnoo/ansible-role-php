@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        centos: ['centos7', 'centos8']
+        centos: ['centos7']
         service: ['httpd', 'nginx']
         version: ['56', '70', '71', '72', '73', '74']
     steps:
