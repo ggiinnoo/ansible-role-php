@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    webService: "nginx"
+
+  roles:
+    - role: ggiinnoo.remi_repo
+    - role: ggiinnoo.webserver
+      version: 1.0.0
+    - ansible-role-php

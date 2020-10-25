@@ -3,18 +3,12 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: molecule/default/yaml-lint.yml
+lint: |
+  yamllint .
+  ansible-lint .
 platforms:
   - name: instance
-    image: "docker.pkg.github.com/ggiinnoo/docker-ansible/${DOCKER_IMAGE:-centos7}:latest"
-    registry:
-      url: docker.pkg.github.com
-      # credentials:
-      #   username: ${DOCKER_USERNAME:-""}
-      #   password: ${DOCKER_PASSWORD:-""}
+    image: "ggiinnoo/docker-ansible:${DOCKER_IMAGE:-centos7}-latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -22,11 +16,10 @@ platforms:
     pre_build_image: true
 provisioner:
   name: ansible
-  log: true
   lint:
     name: ansible-lint
   playbooks:
-    converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
+    converge: ${DOCKER_SERVICE:-httpd}-${DOCKER_VERSION:-56}.yml
 scenario:
   name: default
 verifier:
