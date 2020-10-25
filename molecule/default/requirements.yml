@@ -1,0 +1,8 @@
+---
+
+# Remi repo
+- src: ggiinnoo.remi_repo
+
+# Webserver role
+- role: ggiinnoo.webserver
+  version: 1.0.0
