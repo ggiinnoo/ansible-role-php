@@ -36,7 +36,7 @@
         fpmSessionSaveHandler: files
         fpmSessionsavePath: /opt/remi/php56/root/var/lib/php/session
         fpmSessionSaveCache: /opt/remi/php56/root/var/lib/php/wsdlcache
-  default: true
+      default: true
 
   roles:
     - role: ggiinnoo.remi_repo
