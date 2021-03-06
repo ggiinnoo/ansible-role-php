@@ -14,7 +14,7 @@ jobs:
       matrix:
         centos: ['centos7', 'centos8']
         service: ['httpd', 'nginx']
-        version: ['56', '70', '71', '72', '73', '74']
+        version: ['56', '70', '71', '72', '73', '74', '80']
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

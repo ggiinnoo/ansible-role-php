@@ -26,6 +26,9 @@ There are no requirements as of yet
 Role Variables
 --------------
 
+Setting a default php version allows you to use the cli `php` command without any numbers behind it.
+the var that needs to be set is: `phpVersionDefault`. Example: `phpVersionDefault: 80`
+
 The default process manager is `ondemand` with a child size of `100`. To change this for example user `default`, set the following config in a config file:
 
 ```
@@ -69,6 +72,7 @@ php56:
     fpmSessionSaveCache: /var/lib/php/wsdlcache
   default: true
 ```
+Always make sure the correct user and groups are set for youre env.
 
 Dependencies
 ------------
