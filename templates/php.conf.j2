@@ -1,7 +1,5 @@
 # {{ ansible_managed }}
 # Default php handler
-{% if php56 is defined and php56.default == true %}AddHandler php56-fcgi .php{% endif %}
-
 
 {% if php56 is defined %}Action php56-fcgi /cgi-bin/php56.fcgi{% endif %}
 

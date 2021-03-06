@@ -125,8 +125,7 @@
     dest: "{{ httpdPHPConfLocation }}"
     src: "{{ httpdPHPConfLocationTemplate }}"
   when:
-    - nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
-    - httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length != 0
+    - httpdStatus.results|selectattr("yumstate", "match", "installed")
 
 # php conf template for nginx
 - name: Nginx php.conf file
@@ -134,8 +133,7 @@
     dest: "{{ nginxPHPConfLocation }}"
     src: "{{ nginxPHPConfLocationTemplate }}"
   when:
-    - nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length != 0
-    - httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
+    - nginxStatus.results|selectattr("yumstate", "match", "installed")
 
 # set default php version for cli use
 - name: Set default php version
