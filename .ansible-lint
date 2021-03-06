@@ -1,5 +1,5 @@
 skip_list:
   - '204'
-  - '106'
-  - '602'
-  - '208'
+  - 'role-name'
+  - 'empty-string-compare'
+  - 'risky-file-permissions'
