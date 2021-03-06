@@ -12,15 +12,9 @@ listen = {{ php56.fpm.fpmSock | default("/var/run/php56-fpm.sock") }}
 
 listen.allowed_clients = {{ php56.fpm.fpmListenAllowedClients | default ("127.0.0.1") }}
 
-pm = {{ php56.fpm.fpmPm | default ("dynamic") }}
-pm.max_children = {{ php56.fpm.fpmMaxChild | default ("50") }}
-pm.start_servers = {{ php56.fpm.fpmStartServers | default ("5") }}
-pm.min_spare_servers = {{ php56.fpm.fpmMinSpareServers | default ("5") }}
-pm.max_spare_servers = {{ php56.fpm.fpmMaxSpareServers | default ("35") }}
-
-{% if fpmStatusPath is defined %}
-pm.status_path = {{ fpmStatusPath }}
-{% endif %}
+pm = ondemand
+pm.max_children = 100
+pm.status_path = /phpfpm-status
 
 slowlog = {{ php56.fpm.fpmSlowLog | default ("/opt/remi/php56/root/var/log/php-fpm/www-slow.log") }}
 
