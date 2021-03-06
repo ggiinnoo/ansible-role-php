@@ -14,11 +14,11 @@ listen = /var/run/{{ phpversion }}-fpm-{{ item.name }}.sock
 pm = {{ item.fpm.fpmPm | default ("ondemand") }}
 pm.max_children = {{ item.fpm.fpmMaxChild | default ("100") }}
 
-{% if item.fpm.fpmStartServers is defined %}pm.start_servers = {{ item.fpm.fpmStartServers | default ("5") }}{% endif %}
-
-{% if item.fpm.fpmMinSpareServers is defined %}pm.min_spare_servers = {{ item.fpm.fpmMinSpareServers | default ("5") }}{% endif %}
-
-{% if item.fpm.fpmMaxSpareServers is defined %}pm.max_spare_servers = {{ item.fpm.fpmMaxSpareServers | default ("35") }}{% endif %}
+{% if item.fpm.fpmPm == "dynamic" %}
+pm.start_servers = {{ item.fpm.fpmStartServers | default ("5") }}
+pm.min_spare_servers = {{ item.fpm.fpmMinSpareServers | default ("5") }}
+pm.max_spare_servers = {{ item.fpm.fpmMaxSpareServers | default ("35") }}
+{% endif %}
 
 {% if item.fpm.fpmStatusPath is defined %}
 pm.status_path = {{ item.fpm.fpmStatusPath }}
