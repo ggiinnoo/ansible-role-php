@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install yamllint molecule[docker] docker ansible-lint[core] yamllint
+          python3 -m pip install yamllint molecule[docker] docker ansible ansible-lint yamllint
       - name: run Molecule
         env:
           DOCKER_IMAGE: ${{ matrix.centos }}
