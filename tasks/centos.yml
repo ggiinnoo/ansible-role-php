@@ -18,7 +18,7 @@
 
 - name: Generate full list to install
   set_fact:
-    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) }}"
+    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) }}"
 
 - name: Install php items
   yum:
@@ -94,6 +94,17 @@
   when: php74 is defined
   notify: php74Service
 
+- name: php 80 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate80 }}", dest: "{{ fpmConfLocation80 }}"}
+    - {src: "{{ phpiniConfLocationTemplate80 }}", dest: "{{ phpiniConfLocation80 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate80 }}", dest: "{{ fpmWrapperLocation80 }}"}
+  when: php80 is defined
+  notify: php80Service
+
 # Include user config
 - name: Include user config
   include_tasks: centos-user.yml
@@ -153,6 +164,7 @@
     - "{{ fpmPhp72LogLocation }}"
     - "{{ fpmPhp73LogLocation }}"
     - "{{ fpmPhp74LogLocation }}"
+    - "{{ fpmPhp80LogLocation }}"
   when: webService == "httpd"
 
 - name: Create php session folder httpd
@@ -181,6 +193,7 @@
     - "{{ fpmPhp72LogLocation }}"
     - "{{ fpmPhp73LogLocation }}"
     - "{{ fpmPhp74LogLocation }}"
+    - "{{ fpmPhp80LogLocation }}"
   when: webService == "nginx"
 
 - name: Create php session folder nginx

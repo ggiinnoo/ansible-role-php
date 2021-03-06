@@ -30,11 +30,6 @@
         fpmListenMode: 0660
         fpmSock: /var/run/php73-fpm.sock
         fpmListenAllowedClients: 127.0.0.1
-        fpmPm: dynamic
-        fpmMaxChild: 500
-        fpmStartServers: 2
-        fpmMinSpareServers: 2
-        fpmMaxSpareServers: 35
         fpmStatusPath: "/status"
         fpmSlowLog: "{{ fpmPhp73LogLocation }}/www-slow.log"
         fpmErrorLog: "{{ fpmPhp73LogLocation }}/www-error.log"

@@ -1,5 +1,6 @@
 ---
 
+# Needed remi repo for php
 remiRepo:
   - remi-safe
 
@@ -11,6 +12,7 @@ fpmConfLocation71: /etc/opt/remi/php71/php-fpm.d/www.conf
 fpmConfLocation72: /etc/opt/remi/php72/php-fpm.d/www.conf
 fpmConfLocation73: /etc/opt/remi/php73/php-fpm.d/www.conf
 fpmConfLocation74: /etc/opt/remi/php74/php-fpm.d/www.conf
+fpmConfLocation80: /etc/opt/remi/php80/php-fpm.d/www.conf
 
 # fpm template location.
 fpmConfLocationTemplate56: "{{ role_path }}/templates/www/www-56.conf.j2"
@@ -19,6 +21,7 @@ fpmConfLocationTemplate71: "{{ role_path }}/templates/www/www-71.conf.j2"
 fpmConfLocationTemplate72: "{{ role_path }}/templates/www/www-72.conf.j2"
 fpmConfLocationTemplate73: "{{ role_path }}/templates/www/www-73.conf.j2"
 fpmConfLocationTemplate74: "{{ role_path }}/templates/www/www-74.conf.j2"
+fpmConfLocationTemplate80: "{{ role_path }}/templates/www/www-80.conf.j2"
 
 # fpm template location user
 fpmConfLocationTemplateUser: "{{ role_path }}/templates/www/www-user.conf.j2"
@@ -30,6 +33,7 @@ fpmDLocation71: /etc/opt/remi/php71/php-fpm.d
 fpmDLocation72: /etc/opt/remi/php72/php-fpm.d
 fpmDLocation73: /etc/opt/remi/php73/php-fpm.d
 fpmDLocation74: /etc/opt/remi/php74/php-fpm.d
+fpmDLocation80: /etc/opt/remi/php80/php-fpm.d
 
 # php.ini locations
 phpiniConfLocation56: /etc/opt/remi/php56/php.ini
@@ -38,6 +42,7 @@ phpiniConfLocation71: /etc/opt/remi/php71/php.ini
 phpiniConfLocation72: /etc/opt/remi/php72/php.ini
 phpiniConfLocation73: /etc/opt/remi/php73/php.ini
 phpiniConfLocation74: /etc/opt/remi/php74/php.ini
+phpiniConfLocation80: /etc/opt/remi/php80/php.ini
 
 # php.ini template location
 phpiniConfLocationTemplate56: "{{ role_path }}/templates/ini/php56.ini.j2"
@@ -46,6 +51,7 @@ phpiniConfLocationTemplate71: "{{ role_path }}/templates/ini/php71.ini.j2"
 phpiniConfLocationTemplate72: "{{ role_path }}/templates/ini/php72.ini.j2"
 phpiniConfLocationTemplate73: "{{ role_path }}/templates/ini/php73.ini.j2"
 phpiniConfLocationTemplate74: "{{ role_path }}/templates/ini/php74.ini.j2"
+phpiniConfLocationTemplate80: "{{ role_path }}/templates/ini/php80.ini.j2"
 
 # Script wrapper location
 fpmWrapperLocation56: /var/www/cgi-bin/php56.fcgi
@@ -54,6 +60,7 @@ fpmWrapperLocation71: /var/www/cgi-bin/php71.fcgi
 fpmWrapperLocation72: /var/www/cgi-bin/php72.fcgi
 fpmWrapperLocation73: /var/www/cgi-bin/php73.fcgi
 fpmWrapperLocation74: /var/www/cgi-bin/php74.fcgi
+fpmWrapperLocation80: /var/www/cgi-bin/php80.fcgi
 
 # bash script location fcgi
 fpmWrapperLocationTemplate56: "{{ role_path }}/templates/wrapper/php56.fcgi.j2"
@@ -62,6 +69,7 @@ fpmWrapperLocationTemplate71: "{{ role_path }}/templates/wrapper/php71.fcgi.j2"
 fpmWrapperLocationTemplate72: "{{ role_path }}/templates/wrapper/php72.fcgi.j2"
 fpmWrapperLocationTemplate73: "{{ role_path }}/templates/wrapper/php73.fcgi.j2"
 fpmWrapperLocationTemplate74: "{{ role_path }}/templates/wrapper/php74.fcgi.j2"
+fpmWrapperLocationTemplate80: "{{ role_path }}/templates/wrapper/php80.fcgi.j2"
 
 # php.conf location for httpd
 httpdPHPConfLocation: /etc/httpd/conf.d/php.conf
@@ -78,6 +86,7 @@ fpmPhp71LogLocation: "/var/log/php-fpm71/"
 fpmPhp72LogLocation: "/var/log/php-fpm72/"
 fpmPhp73LogLocation: "/var/log/php-fpm73/"
 fpmPhp74LogLocation: "/var/log/php-fpm74/"
+fpmPhp80LogLocation: "/var/log/php-fpm80/"
 
 # fpm log config
 fpmPhpErrorLogLocation: "/var/log/php-fpm-error.log"
