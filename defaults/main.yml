@@ -1,38 +1,5 @@
 ---
 
-php56:
-  packages:
-    - php56
-    - php56-php-cli
-    - php56-php-common
-    - php56-php-fpm
-    - php56-php-pear
-    - php56-php-pecl-jsonc
-    - php56-php-pecl-zip
-    - php56-php-process
-    - php56-php-xml
-    - php56-runtime
-  fpm:
-    fpmUser: apache
-    fpmGroup: apache
-    fpmListenOwner: apache
-    fpmListenGroup: apache
-    fpmListenMode: 0660
-    fpmSock: /var/run/php56-fpm.sock
-    fpmListenAllowedClients: 127.0.0.1
-    fpmPm: dynamic
-    fpmMaxChild: 500
-    fpmStartServers: 2
-    fpmMinSpareServers: 2
-    fpmMaxSpareServers: 35
-    fpmStatusPath: "/status"
-    fpmSlowLog: "{{ fpmPhp56LogLocation }}/www-slow.log"
-    fpmErrorLog: "{{ fpmPhp56LogLocation }}/www-error.log"
-    fpmSessionSaveHandler: files
-    fpmSessionsavePath: /var/lib/php/session
-    fpmSessionSaveCache: /var/lib/php/wsdlcache
-  default: true
-
 remiRepo:
   - remi-safe
 
@@ -63,7 +30,6 @@ fpmDLocation71: /etc/opt/remi/php71/php-fpm.d
 fpmDLocation72: /etc/opt/remi/php72/php-fpm.d
 fpmDLocation73: /etc/opt/remi/php73/php-fpm.d
 fpmDLocation74: /etc/opt/remi/php74/php-fpm.d
-
 
 # php.ini locations
 phpiniConfLocation56: /etc/opt/remi/php56/php.ini
@@ -112,6 +78,9 @@ fpmPhp71LogLocation: "/var/log/php-fpm71/"
 fpmPhp72LogLocation: "/var/log/php-fpm72/"
 fpmPhp73LogLocation: "/var/log/php-fpm73/"
 fpmPhp74LogLocation: "/var/log/php-fpm74/"
+
+# fpm log config
+fpmPhpErrorLogLocation: "/var/log/php-fpm-error.log"
 
 # cgi bin location
 cgiBinLocation: "/var/www/cgi-bin"

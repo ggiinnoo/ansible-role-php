@@ -12,15 +12,9 @@ listen = {{ php74.fpm.fpmSock | default("/var/run/php74-fpm.sock") }}
 
 listen.allowed_clients = {{ php74.fpm.fpmListenAllowedClients | default ("127.0.0.1") }}
 
-pm = {{ php74.fpm.fpmPm | default ("dynamic") }}
-pm.max_children = {{ php74.fpm.fpmMaxChild | default ("50") }}
-pm.start_servers = {{ php74.fpm.fpmStartServers | default ("5") }}
-pm.min_spare_servers = {{ php74.fpm.fpmMinSpareServers | default ("5") }}
-pm.max_spare_servers = {{ php74.fpm.fpmMaxSpareServers | default ("35") }}
-
-{% if fpmStatusPath is defined %}
-pm.status_path = {{ php74.fpm.fpmStatusPath }}
-{% endif %}
+pm = ondemand
+pm.max_children = 100
+pm.status_path = /phpfpm-status
 
 slowlog = {{ php74.fpm.fpmSlowLog | default ("/opt/remi/php74/root/var/log/php-fpm/www-slow.log") }}
 
