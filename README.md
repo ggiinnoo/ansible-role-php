@@ -74,6 +74,8 @@ php56:
 ```
 Always make sure the correct user and groups are set for youre env.
 
+It's possible to change the listen port of the php.conf. If you have a webserivce lisetening to an other port other then 80 change `webServicePort`
+
 Dependencies
 ------------
 
