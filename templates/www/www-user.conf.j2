@@ -23,7 +23,3 @@ pm.max_spare_servers = {{ item.fpm.fpmMaxSpareServers | default ("35") }}
 {% if item.fpm.fpmStatusPath is defined %}
 pm.status_path = {{ item.fpm.fpmStatusPath }}
 {% endif %}
-
-php_admin_flag[log_errors] = on
-php_admin_value[error_log] = {{ fpmPhpErrorLogLocation }}
-php_admin_value[error_log] = /home/{{ item.name }}/php-fpm.log
