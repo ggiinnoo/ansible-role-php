@@ -38,7 +38,7 @@ jobs:
       matrix:
         os: ['centos7']
         service: ['httpd', 'nginx']
-        version: ['56', '70', '71', '72', '73', '74', '80']
+        version: ['56', '70', '71', '72', '73', '74', '80', '81']
     steps:
       - uses: actions/checkout@v2
         with:
