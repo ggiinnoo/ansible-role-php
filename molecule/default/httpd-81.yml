@@ -1,0 +1,48 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    webService: "httpd"
+    php81:
+      packages:
+        - php81
+        - php81-php-cli
+        - php81-php-common
+        - php81-php-fpm
+        - php81-php-pear
+        - php81-php-gd
+        - php81-php-intl
+        - php81-php-bcmath
+        - php81-php-opcache
+        - php81-php-pdo
+        - php81-runtime
+        - php81-php-mysqlnd
+        - php81-php-pecl-zip
+        - php81-php-process
+        - php81-php-xml
+        - php81-php-soap
+        - php81-php-imap
+        - php81-php-mbstring
+      fpm:
+        fpmUser: apache
+        fpmGroup: apache
+        fpmListenOwner: apache
+        fpmListenGroup: apache
+        fpmListenMode: "0660"
+        fpmSock: /var/run/php81-fpm.sock
+        fpmListenAllowedClients: 127.0.0.1
+        fpmStatusPath: "/status"
+        fpmSlowLog: "{{ fpmPhp81LogLocation }}www-slow.log"
+        fpmErrorLog: "{{ fpmPhp81LogLocation}}www-error.log"
+        fpmSessionSaveHandler: files
+        fpmSessionsavePath: /opt/remi/php81/root/var/lib/php/session
+        fpmSessionSaveCache: /opt/remi/php81/root/var/lib/php/wsdlcache
+      default: true
+
+  roles:
+    - role: ggiinnoo.remi_repo
+    - role: ggiinnoo.webserver
+      version: 1.0.0
+    - ansible-role-php

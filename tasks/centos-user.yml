@@ -70,3 +70,13 @@
   loop: "{{ Users }}"
   when: php80 is defined
   notify: php80Service
+
+- name: php 81 template pool
+  template:
+    dest: "{{ fpmDLocation81 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php81
+  loop: "{{ Users }}"
+  when: php81 is defined
+  notify: php80Service
