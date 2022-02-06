@@ -6,34 +6,45 @@ on:
     branches:
      -  'release/**'
 
+defaults:
+  run:
+    working-directory: 'ggiinnoo.php'
+
 jobs:
-  build:
-    name: Build for centos
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'ggiinnoo.php'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install yamllint
+
+      - name: Lint code.
+        run: |
+          yamllint .
+  CentOS:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        centos: ['centos7', 'centos8']
+        os: ['centos7', 'centos8']
         service: ['httpd', 'nginx']
         version: ['56', '70', '71', '72', '73', '74', '80']
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          fetch-depth: 1
-          path: ansible-role-php
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install yamllint molecule[docker] docker ansible ansible-lint yamllint
-      - name: run Molecule
+          path: "${{ github.repository }}"
+      - uses: gofrolist/molecule-action@v2
         env:
-          DOCKER_IMAGE: ${{ matrix.centos }}
+          DOCKER_IMAGE: ${{ matrix.os }}
           DOCKER_SERVICE: ${{ matrix.service }}
           DOCKER_VERSION: ${{ matrix.version }}
-        run: |
-          cd ansible-role-php
-          molecule test
