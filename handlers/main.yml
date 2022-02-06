@@ -48,3 +48,10 @@
     name: php80-php-fpm
     state: restarted
     enabled: true
+
+# php81 handler
+- name: php81Service
+  service:
+    name: php81-php-fpm
+    state: restarted
+    enabled: true
