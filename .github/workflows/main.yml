@@ -4,7 +4,8 @@ name: Ansible role php
 on:
   push:
     branches:
-     -  'release/**'
+     - 'release/**'
+     - 'feature/*'
 
 defaults:
   run:
@@ -37,7 +38,7 @@ jobs:
     strategy:
       matrix:
         os: ['centos7']
-        service: ['httpd', 'nginx']
+        service: ['httpd', 'nginx', 'php']
         version: ['56', '70', '71', '72', '73', '74', '80', '81']
     steps:
       - uses: actions/checkout@v2
