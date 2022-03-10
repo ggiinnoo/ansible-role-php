@@ -136,7 +136,7 @@
     dest: "{{ httpdPHPConfLocation }}"
     src: "{{ httpdPHPConfLocationTemplate }}"
   when:
-    - webService == "httpd" and nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
+    - webService|default("") == "httpd" and nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
 
 # php conf template for nginx
 - name: Nginx php.conf file
@@ -144,7 +144,7 @@
     dest: "{{ nginxPHPConfLocation }}"
     src: "{{ nginxPHPConfLocationTemplate }}"
   when:
-    - webService == "nginx" and httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
+    - webService|default("") == "nginx" and httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
 
 # set default php version for cli use
 - name: Set default php version
@@ -175,7 +175,7 @@
     - "{{ fpmPhp74LogLocation }}"
     - "{{ fpmPhp80LogLocation }}"
     - "{{ fpmPhp81LogLocation }}"
-  when: webService == "httpd"
+  when: webService|default("") == "httpd"
 
 - name: Create php session folder httpd
   file:
@@ -187,7 +187,7 @@
   with_items:
     - "/var/lib/php/session"
     - "/var/lib/php/wsdlcache"
-  when: webService == "httpd"
+  when: webService|default("") == "httpd"
 
 - name: Create log directories nginx
   file:
@@ -205,7 +205,7 @@
     - "{{ fpmPhp74LogLocation }}"
     - "{{ fpmPhp80LogLocation }}"
     - "{{ fpmPhp81LogLocation }}"
-  when: webService == "nginx"
+  when: webService|default("") == "nginx"
 
 - name: Create php session folder nginx
   file:
@@ -217,4 +217,4 @@
   with_items:
     - "/var/lib/php/session"
     - "/var/lib/php/wsdlcache"
-  when: webService == "nginx"
+  when: webService|default("") == "nginx"
