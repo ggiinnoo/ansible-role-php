@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ['debian10', 'debian']
+        os: ['debian10', 'debian11']
         service: ['httpd', 'nginx', 'php']
         version: ['56', '70', '71', '72', '73', '74', '80', '81']
     steps:

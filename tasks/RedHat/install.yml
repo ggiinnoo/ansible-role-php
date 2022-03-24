@@ -14,7 +14,7 @@
       - name: "{{ item }}"
         state: enable
   with_items:
-    - "{{ remiRepo }}"
+    - "{{ phpRedHatremiRepo }}"
 
 - name: Generate full list to install
   set_fact:
