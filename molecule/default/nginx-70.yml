@@ -4,7 +4,7 @@
   become: true
 
   vars_files:
-    - "{{ role_path }}/molecule/default/vars/{{ ansible_os_family }}-php-70.yml"
+    - "molecule/default/vars/{{ ansible_os_family }}-php-70.yml"
 
   vars:
     webService: "nginx"
