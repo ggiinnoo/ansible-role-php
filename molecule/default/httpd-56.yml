@@ -4,7 +4,7 @@
   become: true
 
   vars_files:
-    - "{{ ansible_os_family }}-php-56.yml"
+    - "{{ role_path }}/molecule/default/vars/{{ ansible_os_family }}-php-56.yml"
 
   vars:
     webService: "httpd"
