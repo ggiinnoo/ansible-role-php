@@ -1,0 +1,34 @@
+---
+
+php56:
+  packages:
+    - php56
+    - php56-php-cli
+    - php56-php-common
+    - php56-php-fpm
+    - php56-php-pear
+    - php56-php-pecl-jsonc
+    - php56-php-pecl-zip
+    - php56-php-process
+    - php56-php-xml
+    - php56-runtime
+    - php56-php-mysqlnd
+    - php56-php-gd
+    - php56-php-soap
+    - php56-php-mssql
+  fpm:
+    fpmUser: "{{ webService }}"
+    fpmGroup: "{{ webService }}"
+    fpmListenOwner: "{{ webService }}"
+    fpmListenGroup: "{{ webService }}"
+    fpmListenMode: "0660"
+    fpmSock: /var/run/php56-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmPm: dynamic
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp56LogLocation }}www-slow.log"
+    fpmErrorLog: "{{ fpmPhp56LogLocation}}www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /opt/remi/php56/root/var/lib/php/session
+    fpmSessionSaveCache: /opt/remi/php56/root/var/lib/php/wsdlcache
+  default: true

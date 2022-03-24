@@ -1,0 +1,36 @@
+---
+
+php74:
+  packages:
+    - php74
+    - php74-php-cli
+    - php74-php-common
+    - php74-php-fpm
+    - php74-php-pear
+    - php74-php-pecl-zip
+    - php74-php-process
+    - php74-php-xml
+    - php74-runtime
+    - php74-php-mysqlnd
+    - php74-php-gd
+    - php74-php-soap
+    - php74-php-imap
+    - php74-php-mbstring
+    - php74-php-intl
+    - php74-php-json
+    - php74-php-pdo
+  fpm:
+    fpmUser: "{{ webService }}"
+    fpmGroup: "{{ webService }}"
+    fpmListenOwner: "{{ webService }}"
+    fpmListenGroup: "{{ webService }}"
+    fpmListenMode: "0660"
+    fpmSock: /var/run/php74-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp74LogLocation }}www-slow.log"
+    fpmErrorLog: "{{ fpmPhp74LogLocation}}www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /opt/remi/php74/root/var/lib/php/session
+    fpmSessionSaveCache: /opt/remi/php74/root/var/lib/php/wsdlcache
+  default: true

@@ -3,47 +3,15 @@
   hosts: all
   become: true
 
+  vars_files:
+    - "{{ ansible_os_family }}-php-80.yml"
+
   vars:
     webService: "nginx"
-    php80:
-      packages:
-        - php80
-        - php80-php-cli
-        - php80-php-common
-        - php80-php-fpm
-        - php80-php-pear
-        - php80-php-json
-        - php80-php-gd
-        - php80-php-intl
-        - php80-php-bcmath
-        - php80-php-opcache
-        - php80-php-pdo
-        - php80-runtime
-        - php80-php-mysqlnd
-        - php80-php-pecl-zip
-        - php80-php-process
-        - php80-php-xml
-        - php80-php-soap
-        - php80-php-imap
-        - php80-php-mbstring
-      fpm:
-        fpmUser: nginx
-        fpmGroup: nginx
-        fpmListenOwner: nginx
-        fpmListenGroup: nginx
-        fpmListenMode: "0660"
-        fpmSock: /var/run/php80-fpm.sock
-        fpmListenAllowedClients: 127.0.0.1
-        fpmStatusPath: "/status"
-        fpmSlowLog: "{{ fpmPhp80LogLocation }}www-slow.log"
-        fpmErrorLog: "{{ fpmPhp80LogLocation}}www-error.log"
-        fpmSessionSaveHandler: files
-        fpmSessionsavePath: /opt/remi/php80/root/var/lib/php/session
-        fpmSessionSaveCache: /opt/remi/php80/root/var/lib/php/wsdlcache
-      default: true
 
   roles:
     - role: ggiinnoo.remi_repo
+      when: ansible_os_family == 'RedHat'
     - role: ggiinnoo.webserver
       version: 1.0.0
     - ansible-role-php

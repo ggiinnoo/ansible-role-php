@@ -126,7 +126,7 @@
     dest: "{{ httpdPHPConfLocation }}"
     src: "{{ httpdPHPConfLocationTemplate }}"
   when:
-    - webService|default("") == "httpd" and phpRedHatNginxPackageName not in ansible_facts.packages
+    - webService|default("") == "httpd" and phpDebianNginxPackageName not in ansible_facts.packages
 
 # php conf template for nginx
 - name: Nginx php.conf file
@@ -134,7 +134,7 @@
     dest: "{{ nginxPHPConfLocation }}"
     src: "{{ nginxPHPConfLocationTemplate }}"
   when:
-    - webService|default("") == "nginx" and phpRedHatApachePackageName not in ansible_facts.packages
+    - webService|default("") == "nginx" and phpDebianApachePackageName not in ansible_facts.packages
 
 # set default php version for cli use
 - name: Set default php version

@@ -1,0 +1,34 @@
+---
+
+php73:
+  packages:
+    - php73
+    - php73-php-cli
+    - php73-php-common
+    - php73-php-fpm
+    - php73-php-pear
+    - php73-php-json
+    - php73-php-gd
+    - php73-php-intl
+    - php73-php-bcmath
+    - php73-php-opcache
+    - php73-php-pdo
+    - php73-runtime
+    - php73-php-wkhtmltox
+    - php73-php-mysqlnd
+    - php73-php-gd
+  fpm:
+    fpmUser: "{{ webService }}"
+    fpmGroup: "{{ webService }}"
+    fpmListenOwner: "{{ webService }}"
+    fpmListenGroup: "{{ webService }}"
+    fpmListenMode: 0660
+    fpmSock: /var/run/php73-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp73LogLocation }}/www-slow.log"
+    fpmErrorLog: "{{ fpmPhp73LogLocation }}/www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /var/lib/php/session
+    fpmSessionSaveCache: /var/lib/php/wsdlcache
+  default: true

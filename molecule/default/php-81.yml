@@ -38,4 +38,5 @@
 
   roles:
     - role: ggiinnoo.remi_repo
+      when: ansible_os_family == 'RedHat'
     - ansible-role-php

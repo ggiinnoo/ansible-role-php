@@ -3,44 +3,15 @@
   hosts: all
   become: true
 
+  vars_files:
+    - "{{ ansible_os_family }}-php-71.yml"
+
   vars:
     webService: "nginx"
-    php71:
-      packages:
-        - php71
-        - php71-php-cli
-        - php71-php-common
-        - php71-php-fpm
-        - php71-php-pear
-        - php71-php-json
-        - php71-php-gd
-        - php71-php-intl
-        - php71-php-bcmath
-        - php71-php-opcache
-        - php71-php-pdo
-        - php71-runtime
-        - php71-php-wkhtmltox
-        - php71-php-mysqlnd
-        - php71-php-pecl-zip
-        - php71-php-gd
-      fpm:
-        fpmUser: nginx
-        fpmGroup: nginx
-        fpmListenOwner: nginx
-        fpmListenGroup: nginx
-        fpmListenMode: 0660
-        fpmSock: /var/run/php71-fpm.sock
-        fpmListenAllowedClients: 127.0.0.1
-        fpmStatusPath: "/status"
-        fpmSlowLog: "{{ fpmPhp71LogLocation }}/www-slow.log"
-        fpmErrorLog: "{{ fpmPhp71LogLocation }}/www-error.log"
-        fpmSessionSaveHandler: files
-        fpmSessionsavePath: /var/lib/php/session
-        fpmSessionSaveCache: /var/lib/php/wsdlcache
-      default: true
 
   roles:
     - role: ggiinnoo.remi_repo
+      when: ansible_os_family == 'RedHat'
     - role: ggiinnoo.webserver
       version: 1.0.0
     - ansible-role-php

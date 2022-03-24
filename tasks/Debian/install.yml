@@ -6,6 +6,11 @@
     path: "{{ cgiBinLocation }}"
     state: "directory"
 
+- name: PHP | Debian | Create nginx user
+  user:
+    name: nginx
+    shell: /bin/false
+
 - name: PHP | Debian | Install required packages
   apt:
     name: "{{ item }}"

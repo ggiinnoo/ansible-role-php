@@ -3,6 +3,9 @@
   hosts: all
   become: true
 
+  vars_files:
+    - "{{ ansible_os_family }}-php-80.yml"
+
   vars:
     php80:
       packages:
@@ -39,4 +42,5 @@
 
   roles:
     - role: ggiinnoo.remi_repo
+      when: ansible_os_family == 'RedHat'
     - ansible-role-php

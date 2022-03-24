@@ -1,0 +1,32 @@
+---
+
+php72:
+  packages:
+    - php7.2
+    - php7.2-cli
+    - php7.2-common
+    - php7.2-fpm
+    - php7.2-json
+    - php7.2-gd
+    - php7.2-intl
+    - php7.2-bcmath
+    - php7.2-opcache
+    - php7.2-pdo
+    - php7.2-mysqlnd
+    - php7.2-zip
+    - php7.2-gd
+  fpm:
+    fpmUser: "{{ webService }}"
+    fpmGroup: "{{ webService }}"
+    fpmListenOwner: "{{ webService }}"
+    fpmListenGroup: "{{ webService }}"
+    fpmListenMode: 0660
+    fpmSock: /var/run/php72-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp72LogLocation }}/www-slow.log"
+    fpmErrorLog: "{{ fpmPhp72LogLocation }}/www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /var/lib/php/session
+    fpmSessionSaveCache: /var/lib/php/wsdlcache
+  default: true
