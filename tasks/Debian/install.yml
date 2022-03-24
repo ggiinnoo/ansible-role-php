@@ -1,0 +1,37 @@
+---
+
+- name: PHP | Debian | Create folder
+  file:
+    mode: "0755"
+    path: "{{ cgiBinLocation }}"
+    state: "directory"
+
+- name: PHP | Debian | Install required packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - "{{ phpDebianPackages }}"
+
+- name: PHP | Debian | Place php repo file
+  template:
+    src: "{{ phpDebianRepoSource }}"
+    dest: "{{ phpDebianRepoDestination }}"
+
+- name: PHP | Debian | Get GPG key
+  get_url:
+    url: "{{ phpDebianGPGKeyUrl }}"
+    dest: "{{ phpDebianGPGKeyLocation }}"
+
+- name: PHP | Debian | Install GPG Key
+  shell: "gpg --quiet --import --import-options import-show {{ phpDebianGPGKeyLocation }}"
+
+- name: PHP | Debian | Generate full list to install
+  set_fact:
+    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) + php81.packages|default([])}}"
+
+- name: PHP | Debian | Install php items
+  apt:
+    name: "{{ phpItems }}"
+    state: "present"

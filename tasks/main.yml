@@ -1,8 +1,11 @@
 ---
 
-# Include checks task
-- import_tasks: checks.yml
+- name: PHP | Gather server Package information
+  package_facts:
+    manager: "auto"
 
-# Add remi repo using my own role
-- name: Include centos task
-  include_tasks: centos.yml
+- name: PHP | Include OS variables
+  include_vars: '{{ ansible_os_family }}.yml'
+
+- name: PHP | Include OS installation
+  include_tasks: '{{ ansible_os_family }}.yml'

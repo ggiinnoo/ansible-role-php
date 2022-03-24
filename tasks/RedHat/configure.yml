@@ -1,31 +1,5 @@
 ---
 
-- name: Create folder
-  file:
-    mode: "0755"
-    path: "{{ cgiBinLocation }}"
-    state: "directory"
-
-- name: config remi repo
-  include_role:
-    name: "ggiinnoo.remi_repo"
-  vars:
-    remiCentosRepoList:
-      - name: "{{ item }}"
-        state: enable
-  with_items:
-    - "{{ remiRepo }}"
-
-- name: Generate full list to install
-  set_fact:
-    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) + php81.packages|default([])}}"
-
-- name: Install php items
-  yum:
-    name: "{{ item }}"
-    state: "installed"
-  with_items:
-    - "{{ phpItems }}"
 
 # setup/config fpm
 - name: php 56 template's
@@ -37,7 +11,9 @@
     - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpiniConfLocation56 }}"}
     - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ fpmWrapperLocation56 }}"}
   when: php56 is defined
-  notify: php56Service
+  notify: RedHatphp56Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 70 template's
   template:
@@ -48,7 +24,9 @@
     - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpiniConfLocation70 }}"}
     - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ fpmWrapperLocation70 }}"}
   when: php70 is defined
-  notify: php70Service
+  notify: RedHatphp70Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 71 template's
   template:
@@ -59,7 +37,9 @@
     - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpiniConfLocation71 }}"}
     - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ fpmWrapperLocation71 }}"}
   when: php71 is defined
-  notify: php71Service
+  notify: RedHatphp71Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 72 template's
   template:
@@ -70,7 +50,9 @@
     - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpiniConfLocation72 }}"}
     - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ fpmWrapperLocation72 }}"}
   when: php72 is defined
-  notify: php72Service
+  notify: RedHatphp72Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 73 template's
   template:
@@ -81,7 +63,9 @@
     - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpiniConfLocation73 }}"}
     - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ fpmWrapperLocation73 }}"}
   when: php73 is defined
-  notify: php73Service
+  notify: RedHatphp73Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 74 template's
   template:
@@ -92,7 +76,9 @@
     - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpiniConfLocation74 }}"}
     - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ fpmWrapperLocation74 }}"}
   when: php74 is defined
-  notify: php74Service
+  notify: RedHatphp74Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 80 template's
   template:
@@ -103,7 +89,9 @@
     - {src: "{{ phpiniConfLocationTemplate80 }}", dest: "{{ phpiniConfLocation80 }}"}
     - {src: "{{ fpmWrapperLocationTemplate80 }}", dest: "{{ fpmWrapperLocation80 }}"}
   when: php80 is defined
-  notify: php80Service
+  notify: RedHatphp80Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 - name: php 81 template's
   template:
@@ -114,7 +102,9 @@
     - {src: "{{ phpiniConfLocationTemplate81 }}", dest: "{{ phpiniConfLocation81 }}"}
     - {src: "{{ fpmWrapperLocationTemplate81 }}", dest: "{{ fpmWrapperLocation81 }}"}
   when: php81 is defined
-  notify: php81Service
+  notify: RedHatphp81Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 # Include user config
 - name: Include user config
@@ -136,7 +126,7 @@
     dest: "{{ httpdPHPConfLocation }}"
     src: "{{ httpdPHPConfLocationTemplate }}"
   when:
-    - webService|default("") == "httpd" and nginxStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
+    - webService|default("") == "httpd" and phpRedHatNginxPackageName not in ansible_facts.packages
 
 # php conf template for nginx
 - name: Nginx php.conf file
@@ -144,7 +134,7 @@
     dest: "{{ nginxPHPConfLocation }}"
     src: "{{ nginxPHPConfLocationTemplate }}"
   when:
-    - webService|default("") == "nginx" and httpdStatus.results|selectattr("yumstate", "match", "installed")|list|length == 0
+    - webService|default("") == "nginx" and phpRedHatApachePackageName not in ansible_facts.packages
 
 # set default php version for cli use
 - name: Set default php version

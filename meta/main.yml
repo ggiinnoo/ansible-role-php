@@ -17,5 +17,4 @@ galaxy_info:
     - fpm
     - centos
 
-dependencies:
-  - ggiinnoo.remi_repo
+dependencies: []

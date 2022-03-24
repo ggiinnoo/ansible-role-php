@@ -1,0 +1,26 @@
+---
+
+- name: Create folder
+  file:
+    mode: "0755"
+    path: "{{ cgiBinLocation }}"
+    state: "directory"
+
+- name: config remi repo
+  include_role:
+    name: "ggiinnoo.remi_repo"
+  vars:
+    remiCentosRepoList:
+      - name: "{{ item }}"
+        state: enable
+  with_items:
+    - "{{ remiRepo }}"
+
+- name: Generate full list to install
+  set_fact:
+    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) + php81.packages|default([])}}"
+
+- name: Install php items
+  yum:
+    name: "{{ phpItems }}"
+    state: "installed"

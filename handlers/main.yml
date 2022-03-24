@@ -1,56 +1,99 @@
 ---
 
-# php56 handler
-- name: php56Service
+## Debian Handlers ##
+
+- name: Debianphp56Service
+  service:
+    name: php56-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp70Service
+  service:
+    name: php70-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp71Service
+  service:
+    name: php71-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp72Service
+  service:
+    name: php72-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp73Service
+  service:
+    name: php73-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp74Service
+  service:
+    name: php74-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp80Service
+  service:
+    name: php80-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp81Service
+  service:
+    name: php81-fpm
+    state: restarted
+    enabled: true
+
+## RedHat Handlers ##
+- name: RedHatphp56Service
   service:
     name: php56-php-fpm
     state: restarted
     enabled: true
 
-# php70 handler
-- name: php70Service
+- name: RedHatphp70Service
   service:
     name: php70-php-fpm
     state: restarted
     enabled: true
 
-# php71 handler
-- name: php71Service
+- name: RedHatphp71Service
   service:
     name: php71-php-fpm
     state: restarted
     enabled: true
 
-# php72 handler
-- name: php72Service
+- name: RedHatphp72Service
   service:
     name: php72-php-fpm
     state: restarted
     enabled: true
 
-# php73 handler
-- name: php73Service
+- name: RedHatphp73Service
   service:
     name: php73-php-fpm
     state: restarted
     enabled: true
 
-# php74 handler
-- name: php74Service
+- name: RedHatphp74Service
   service:
     name: php74-php-fpm
     state: restarted
     enabled: true
 
-# php80 handler
-- name: php80Service
+- name: RedHatphp80Service
   service:
     name: php80-php-fpm
     state: restarted
     enabled: true
 
-# php81 handler
-- name: php81Service
+- name: RedHatphp81Service
   service:
     name: php81-php-fpm
     state: restarted
