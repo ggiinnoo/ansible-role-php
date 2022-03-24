@@ -3,11 +3,11 @@
   hosts: all
   become: true
 
-  vars_files:
-    - "molecule/default/vars/{{ ansible_os_family }}-php-73.yml"
-
   vars:
     webService: "nginx"
+
+  pre_tasks:
+    - include_vars: "{{ ansible_os_family }}-php-73.yml"
 
   roles:
     - role: ggiinnoo.remi_repo
