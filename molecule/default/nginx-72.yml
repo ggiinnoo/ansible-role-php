@@ -12,6 +12,6 @@
   roles:
     - role: ggiinnoo.remi_repo
       when: ansible_os_family == 'RedHat'
-    - role: ggiinnoo.webserver
-      version: 1.0.0
+    - role: ggiinnoo.nginx
+      version: 1.0.1
     - ansible-role-php

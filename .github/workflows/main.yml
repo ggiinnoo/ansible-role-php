@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         os: ['centos7']
-        service: ['httpd', 'nginx', 'php']
+        service: ['nginx', 'php']
         version: ['56', '70', '71', '72', '73', '74', '80', '81']
     steps:
       - uses: actions/checkout@v2
@@ -54,7 +54,7 @@ jobs:
     strategy:
       matrix:
         os: ['debian10', 'debian11']
-        service: ['httpd', 'nginx', 'php']
+        service: ['nginx', 'php']
         version: ['56', '70', '71', '72', '73', '74', '80', '81']
     steps:
       - uses: actions/checkout@v2
