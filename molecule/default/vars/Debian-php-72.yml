@@ -16,10 +16,10 @@ php72:
     - php7.2-zip
     - php7.2-gd
   fpm:
-    fpmUser: "{{ webService|default("") }}"
-    fpmGroup: "{{ webService|default("") }}"
-    fpmListenOwner: "{{ webService|default("") }}"
-    fpmListenGroup: "{{ webService|default("") }}"
+    fpmUser: "{{ webService|default('') }}"
+    fpmGroup: "{{ webService|default('') }}"
+    fpmListenOwner: "{{ webService|default('') }}"
+    fpmListenGroup: "{{ webService|default('') }}"
     fpmListenMode: 0660
     fpmSock: /var/run/php72-fpm.sock
     fpmListenAllowedClients: 127.0.0.1

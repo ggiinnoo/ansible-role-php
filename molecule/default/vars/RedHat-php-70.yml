@@ -19,10 +19,10 @@ php70:
     - php70-php-pecl-zip
     - php70-php-gd
   fpm:
-    fpmUser: "{{ webService|default("") }}"
-    fpmGroup: "{{ webService|default("") }}"
-    fpmListenOwner: "{{ webService|default("") }}"
-    fpmListenGroup: "{{ webService|default("") }}"
+    fpmUser: "{{ webService|default('') }}"
+    fpmGroup: "{{ webService|default('') }}"
+    fpmListenOwner: "{{ webService|default('') }}"
+    fpmListenGroup: "{{ webService|default('') }}"
     fpmListenMode: 0660
     fpmSock: /var/run/php70-fpm.sock
     fpmListenAllowedClients: 127.0.0.1
