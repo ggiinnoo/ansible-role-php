@@ -40,3 +40,4 @@
   apt:
     name: "{{ phpItems }}"
     state: "present"
+    update_cache: true
