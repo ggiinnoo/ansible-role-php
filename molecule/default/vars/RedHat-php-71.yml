@@ -19,10 +19,10 @@ php71:
     - php71-php-pecl-zip
     - php71-php-gd
   fpm:
-    fpmUser: "{{ webService }}"
-    fpmGroup: "{{ webService }}"
-    fpmListenOwner: "{{ webService }}"
-    fpmListenGroup: "{{ webService }}"
+    fpmUser: "{{ webService|default("") }}"
+    fpmGroup: "{{ webService|default("") }}"
+    fpmListenOwner: "{{ webService|default("") }}"
+    fpmListenGroup: "{{ webService|default("") }}"
     fpmListenMode: 0660
     fpmSock: /var/run/php71-fpm.sock
     fpmListenAllowedClients: 127.0.0.1

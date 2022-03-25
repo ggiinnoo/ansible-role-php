@@ -20,10 +20,10 @@ php74:
     - php74-php-json
     - php74-php-pdo
   fpm:
-    fpmUser: "{{ webService }}"
-    fpmGroup: "{{ webService }}"
-    fpmListenOwner: "{{ webService }}"
-    fpmListenGroup: "{{ webService }}"
+    fpmUser: "{{ webService|default("") }}"
+    fpmGroup: "{{ webService|default("") }}"
+    fpmListenOwner: "{{ webService|default("") }}"
+    fpmListenGroup: "{{ webService|default("") }}"
     fpmListenMode: "0660"
     fpmSock: /var/run/php74-fpm.sock
     fpmListenAllowedClients: 127.0.0.1
