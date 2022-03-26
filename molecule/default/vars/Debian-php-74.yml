@@ -17,10 +17,10 @@ php74:
     - php7.4-json
     - php7.4-pdo
   fpm:
-    fpmUser: "{{ webService|default('') }}"
-    fpmGroup: "{{ webService|default('') }}"
-    fpmListenOwner: "{{ webService|default('') }}"
-    fpmListenGroup: "{{ webService|default('') }}"
+    fpmUser: "{{ webService|default('ansible') }}"
+    fpmGroup: "{{ webService|default('ansible') }}"
+    fpmListenOwner: "{{ webService|default('ansible') }}"
+    fpmListenGroup: "{{ webService|default('ansible') }}"
     fpmListenMode: "0660"
     fpmSock: /var/run/php74-fpm.sock
     fpmListenAllowedClients: 127.0.0.1
