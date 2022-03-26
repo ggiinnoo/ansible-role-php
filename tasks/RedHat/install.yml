@@ -1,12 +1,12 @@
 ---
 
-- name: Create folder
+- name: PHP | RedHat | Create folder
   file:
     mode: "0755"
-    path: "{{ cgiBinLocation }}"
+    path: "{{ phpRedHatCGIBinLocation }}"
     state: "directory"
 
-- name: config remi repo
+- name: PHP | RedHat | config remi repo
   include_role:
     name: "ggiinnoo.remi_repo"
   vars:
@@ -14,13 +14,13 @@
       - name: "{{ item }}"
         state: enable
   with_items:
-    - "{{ phpRedHatremiRepo }}"
+    - "{{ phpRedHatPhpRedHatremiRepo }}"
 
-- name: Generate full list to install
+- name: PHP | RedHat | Generate full list to install
   set_fact:
     phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) + php81.packages|default([])}}"
 
-- name: Install php items
+- name: PHP | RedHat | Install php items
   yum:
     name: "{{ phpItems }}"
     state: "installed"

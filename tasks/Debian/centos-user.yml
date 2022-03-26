@@ -1,9 +1,9 @@
 ---
 
 # setup/config fpm
-- name: PHP | RedHat | php 56 template pool
+- name: PHP | Debian | php 56 template pool
   template:
-    dest: "{{ fpmDLocation56 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation56 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php56
@@ -11,9 +11,9 @@
   when: php56 is defined
   notify: php56Service
 
-- name: PHP | RedHat | php 70 template pool
+- name: PHP | Debian | php 70 template pool
   template:
-    dest: "{{ fpmDLocation70 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation70 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php70
@@ -21,9 +21,9 @@
   when: php70 is defined
   notify: php70Service
 
-- name: PHP | RedHat | php 71 template pool
+- name: PHP | Debian | php 71 template pool
   template:
-    dest: "{{ fpmDLocation71 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation71 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php71
@@ -31,9 +31,9 @@
   when: php71 is defined
   notify: php71Service
 
-- name: PHP | RedHat | php 72 template pool
+- name: PHP | Debian | php 72 template pool
   template:
-    dest: "{{ fpmDLocation72 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation72 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php72
@@ -41,9 +41,9 @@
   when: php72 is defined
   notify: php72Service
 
-- name: PHP | RedHat | php 73 template pool
+- name: PHP | Debian | php 73 template pool
   template:
-    dest: "{{ fpmDLocation73 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation73 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php73
@@ -51,9 +51,9 @@
   when: php73 is defined
   notify: php73Service
 
-- name: PHP | RedHat | php 74 template pool
+- name: PHP | Debian | php 74 template pool
   template:
-    dest: "{{ fpmDLocation74 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation74 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php74
@@ -61,9 +61,9 @@
   when: php74 is defined
   notify: php74Service
 
-- name: PHP | RedHat | php 80 template pool
+- name: PHP | Debian | php 80 template pool
   template:
-    dest: "{{ fpmDLocation80 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation80 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php80
@@ -71,9 +71,9 @@
   when: php80 is defined
   notify: php80Service
 
-- name: PHP | RedHat | php 81 template pool
+- name: PHP | Debian | php 81 template pool
   template:
-    dest: "{{ fpmDLocation81 }}/{{ item.name }}.conf"
+    dest: "{{ phpDebianFpmDLocation81 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php81

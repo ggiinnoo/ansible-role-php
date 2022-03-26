@@ -5,48 +5,48 @@ phpRedHatApachePackageName: "httpd"
 phpRedHatNginxPackageName: "nginx"
 
 # Needed remi repo for php
-phpRedHatremiRepo:
+phpRedHatPhpRedHatremiRepo:
   - remi-safe
 
 # www.conf locations per version
-fpmConfLocation56: /etc/opt/remi/php56/php-fpm.d/www.conf
-fpmConfLocation70: /etc/opt/remi/php70/php-fpm.d/www.conf
-fpmConfLocation71: /etc/opt/remi/php71/php-fpm.d/www.conf
-fpmConfLocation72: /etc/opt/remi/php72/php-fpm.d/www.conf
-fpmConfLocation73: /etc/opt/remi/php73/php-fpm.d/www.conf
-fpmConfLocation74: /etc/opt/remi/php74/php-fpm.d/www.conf
-fpmConfLocation80: /etc/opt/remi/php80/php-fpm.d/www.conf
-fpmConfLocation81: /etc/opt/remi/php81/php-fpm.d/www.conf
+phpRedHatFpmConfLocation56: /etc/opt/remi/php56/php-fpm.d/www.conf
+phpRedHatFpmConfLocation70: /etc/opt/remi/php70/php-fpm.d/www.conf
+phpRedHatFpmConfLocation71: /etc/opt/remi/php71/php-fpm.d/www.conf
+phpRedHatFpmConfLocation72: /etc/opt/remi/php72/php-fpm.d/www.conf
+phpRedHatFpmConfLocation73: /etc/opt/remi/php73/php-fpm.d/www.conf
+phpRedHatFpmConfLocation74: /etc/opt/remi/php74/php-fpm.d/www.conf
+phpRedHatFpmConfLocation80: /etc/opt/remi/php80/php-fpm.d/www.conf
+phpRedHatFpmConfLocation81: /etc/opt/remi/php81/php-fpm.d/www.conf
 
 # php-fpm.d locations
-fpmDLocation56: /etc/opt/remi/php56/php-fpm.d
-fpmDLocation70: /etc/opt/remi/php70/php-fpm.d
-fpmDLocation71: /etc/opt/remi/php71/php-fpm.d
-fpmDLocation72: /etc/opt/remi/php72/php-fpm.d
-fpmDLocation73: /etc/opt/remi/php73/php-fpm.d
-fpmDLocation74: /etc/opt/remi/php74/php-fpm.d
-fpmDLocation80: /etc/opt/remi/php80/php-fpm.d
-fpmDLocation81: /etc/opt/remi/php81/php-fpm.d
+phpRedHatFpmDLocation56: /etc/opt/remi/php56/php-fpm.d
+phpRedHatFpmDLocation70: /etc/opt/remi/php70/php-fpm.d
+phpRedHatFpmDLocation71: /etc/opt/remi/php71/php-fpm.d
+phpRedHatFpmDLocation72: /etc/opt/remi/php72/php-fpm.d
+phpRedHatFpmDLocation73: /etc/opt/remi/php73/php-fpm.d
+phpRedHatFpmDLocation74: /etc/opt/remi/php74/php-fpm.d
+phpRedHatFpmDLocation80: /etc/opt/remi/php80/php-fpm.d
+phpRedHatFpmDLocation81: /etc/opt/remi/php81/php-fpm.d
 
 # php.ini locations
-phpiniConfLocation56: /etc/opt/remi/php56/php.ini
-phpiniConfLocation70: /etc/opt/remi/php70/php.ini
-phpiniConfLocation71: /etc/opt/remi/php71/php.ini
-phpiniConfLocation72: /etc/opt/remi/php72/php.ini
-phpiniConfLocation73: /etc/opt/remi/php73/php.ini
-phpiniConfLocation74: /etc/opt/remi/php74/php.ini
-phpiniConfLocation80: /etc/opt/remi/php80/php.ini
-phpiniConfLocation81: /etc/opt/remi/php81/php.ini
+phpRedHatPhpiniConfLocation56: /etc/opt/remi/php56/php.ini
+phpRedHatPhpiniConfLocation70: /etc/opt/remi/php70/php.ini
+phpRedHatPhpiniConfLocation71: /etc/opt/remi/php71/php.ini
+phpRedHatPhpiniConfLocation72: /etc/opt/remi/php72/php.ini
+phpRedHatPhpiniConfLocation73: /etc/opt/remi/php73/php.ini
+phpRedHatPhpiniConfLocation74: /etc/opt/remi/php74/php.ini
+phpRedHatPhpiniConfLocation80: /etc/opt/remi/php80/php.ini
+phpRedHatPhpiniConfLocation81: /etc/opt/remi/php81/php.ini
 
 # Script wrapper location
-fpmWrapperLocation56: /var/www/cgi-bin/php56.fcgi
-fpmWrapperLocation70: /var/www/cgi-bin/php70.fcgi
-fpmWrapperLocation71: /var/www/cgi-bin/php71.fcgi
-fpmWrapperLocation72: /var/www/cgi-bin/php72.fcgi
-fpmWrapperLocation73: /var/www/cgi-bin/php73.fcgi
-fpmWrapperLocation74: /var/www/cgi-bin/php74.fcgi
-fpmWrapperLocation80: /var/www/cgi-bin/php80.fcgi
-fpmWrapperLocation81: /var/www/cgi-bin/php81.fcgi
+phpRedHatFpmWrapperLocation56: /var/www/cgi-bin/php56.fcgi
+phpRedHatFpmWrapperLocation70: /var/www/cgi-bin/php70.fcgi
+phpRedHatFpmWrapperLocation71: /var/www/cgi-bin/php71.fcgi
+phpRedHatFpmWrapperLocation72: /var/www/cgi-bin/php72.fcgi
+phpRedHatFpmWrapperLocation73: /var/www/cgi-bin/php73.fcgi
+phpRedHatFpmWrapperLocation74: /var/www/cgi-bin/php74.fcgi
+phpRedHatFpmWrapperLocation80: /var/www/cgi-bin/php80.fcgi
+phpRedHatFpmWrapperLocation81: /var/www/cgi-bin/php81.fcgi
 
 # cgi bin location
-cgiBinLocation: "/var/www/cgi-bin"
+phpRedHatCGIBinLocation: "/var/www/cgi-bin"

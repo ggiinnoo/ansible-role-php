@@ -2,126 +2,126 @@
 
 
 # setup/config fpm
-- name: php 56 template's
+- name: PHP | Debian | php 56 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate56 }}", dest: "{{ fpmConfLocation56 }}"}
-    - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpiniConfLocation56 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ fpmWrapperLocation56 }}"}
+    - {src: "{{ fpmConfLocationTemplate56 }}", dest: "{{ phpDebianFpmConfLocation56 }}"}
+    - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpDebianPhpiniConfLocation56 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ phpDebianFpmWrapperLocation56 }}"}
   when: php56 is defined
   notify: Debianphp56Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 70 template's
+- name: PHP | Debian | php 70 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate70 }}", dest: "{{ fpmConfLocation70 }}"}
-    - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpiniConfLocation70 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ fpmWrapperLocation70 }}"}
+    - {src: "{{ fpmConfLocationTemplate70 }}", dest: "{{ phpDebianFpmConfLocation70 }}"}
+    - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpDebianPhpiniConfLocation70 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ phpDebianFpmWrapperLocation70 }}"}
   when: php70 is defined
   notify: Debianphp70Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 71 template's
+- name: PHP | Debian | php 71 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate71 }}", dest: "{{ fpmConfLocation71 }}"}
-    - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpiniConfLocation71 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ fpmWrapperLocation71 }}"}
+    - {src: "{{ fpmConfLocationTemplate71 }}", dest: "{{ phpDebianFpmConfLocation71 }}"}
+    - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpDebianPhpiniConfLocation71 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ phpDebianFpmWrapperLocation71 }}"}
   when: php71 is defined
   notify: Debianphp71Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 72 template's
+- name: PHP | Debian | php 72 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate72 }}", dest: "{{ fpmConfLocation72 }}"}
-    - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpiniConfLocation72 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ fpmWrapperLocation72 }}"}
+    - {src: "{{ fpmConfLocationTemplate72 }}", dest: "{{ phpDebianFpmConfLocation72 }}"}
+    - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpDebianPhpiniConfLocation72 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ phpDebianFpmWrapperLocation72 }}"}
   when: php72 is defined
   notify: Debianphp72Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 73 template's
+- name: PHP | Debian | php 73 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate73 }}", dest: "{{ fpmConfLocation73 }}"}
-    - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpiniConfLocation73 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ fpmWrapperLocation73 }}"}
+    - {src: "{{ fpmConfLocationTemplate73 }}", dest: "{{ phpDebianFpmConfLocation73 }}"}
+    - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpDebianPhpiniConfLocation73 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ phpDebianFpmWrapperLocation73 }}"}
   when: php73 is defined
   notify: Debianphp73Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 74 template's
+- name: PHP | Debian | php 74 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate74 }}", dest: "{{ fpmConfLocation74 }}"}
-    - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpiniConfLocation74 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ fpmWrapperLocation74 }}"}
+    - {src: "{{ fpmConfLocationTemplate74 }}", dest: "{{ phpDebianFpmConfLocation74 }}"}
+    - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpDebianPhpiniConfLocation74 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ phpDebianFpmWrapperLocation74 }}"}
   when: php74 is defined
   notify: Debianphp74Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 80 template's
+- name: PHP | Debian | php 80 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate80 }}", dest: "{{ fpmConfLocation80 }}"}
-    - {src: "{{ phpiniConfLocationTemplate80 }}", dest: "{{ phpiniConfLocation80 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate80 }}", dest: "{{ fpmWrapperLocation80 }}"}
+    - {src: "{{ fpmConfLocationTemplate80 }}", dest: "{{ phpDebianFpmConfLocation80 }}"}
+    - {src: "{{ phpiniConfLocationTemplate80 }}", dest: "{{ phpDebianPhpiniConfLocation80 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate80 }}", dest: "{{ phpDebianFpmWrapperLocation80 }}"}
   when: php80 is defined
   notify: Debianphp80Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
-- name: php 81 template's
+- name: PHP | Debian | php 81 template's
   template:
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate81 }}", dest: "{{ fpmConfLocation81 }}"}
-    - {src: "{{ phpiniConfLocationTemplate81 }}", dest: "{{ phpiniConfLocation81 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate81 }}", dest: "{{ fpmWrapperLocation81 }}"}
+    - {src: "{{ fpmConfLocationTemplate81 }}", dest: "{{ phpDebianFpmConfLocation81 }}"}
+    - {src: "{{ phpiniConfLocationTemplate81 }}", dest: "{{ phpDebianPhpiniConfLocation81 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate81 }}", dest: "{{ phpDebianFpmWrapperLocation81 }}"}
   when: php81 is defined
   notify: Debianphp81Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
 # Include user config
-- name: Include user config
+- name: PHP | Debian | Include user config
   include_tasks: centos-user.yml
   when:
     - Users is defined
 
 # script wrapper files permissions
-- name: Set permissions wrapper script's
+- name: PHP | Debian | Set permissions wrapper script's
   file:
-    path: "{{ cgiBinLocation }}"
+    path: "{{ phpDebianCGIBinLocation }}"
     mode: "0755"
     recurse: "true"
     state: "directory"
 
 # php conf tempalte for apache
-- name: Apache php.conf file
+- name: PHP | Debian | Apache php.conf file
   template:
     dest: "{{ httpdPHPConfLocation }}"
     src: "{{ httpdPHPConfLocationTemplate }}"
@@ -129,7 +129,7 @@
     - webService|default("") == "httpd" and phpDebianNginxPackageName not in ansible_facts.packages
 
 # php conf template for nginx
-- name: Nginx php.conf file
+- name: PHP | Debian | Nginx php.conf file
   template:
     dest: "{{ nginxPHPConfLocation }}"
     src: "{{ nginxPHPConfLocationTemplate }}"
@@ -137,7 +137,7 @@
     - webService|default("") == "nginx" and phpDebianApachePackageName not in ansible_facts.packages
 
 # set default php version for cli use
-- name: Set default php version
+- name: PHP | Debian | Set default php version
   file:
     src: "{{ item.src }}"
     path: "{{ item.dest }}"
@@ -149,7 +149,7 @@
     - {src: "/opt/remi/php{{ phpVersionDefault }}/root/usr/bin/phar.phar", dest: "/usr/bin/php-phar"}
   when: phpVersionDefault is defined
 
-- name: Create log directories httpd
+- name: PHP | Debian | Create log directories httpd
   file:
     group: "apache"
     owner: "apache"
@@ -157,17 +157,17 @@
     path: "{{ item }}"
     state: "directory"
   with_items:
-    - "{{ fpmPhp56LogLocation }}"
-    - "{{ fpmPhp70LogLocation }}"
-    - "{{ fpmPhp71LogLocation }}"
-    - "{{ fpmPhp72LogLocation }}"
-    - "{{ fpmPhp73LogLocation }}"
-    - "{{ fpmPhp74LogLocation }}"
-    - "{{ fpmPhp80LogLocation }}"
-    - "{{ fpmPhp81LogLocation }}"
+    - "{{ phpDebianFpmPhp56LogLocation }}"
+    - "{{ phpDebianFpmPhp70LogLocation }}"
+    - "{{ phpDebianFpmPhp71LogLocation }}"
+    - "{{ phpDebianFpmPhp72LogLocation }}"
+    - "{{ phpDebianFpmPhp73LogLocation }}"
+    - "{{ phpDebianFpmPhp74LogLocation }}"
+    - "{{ phpDebianFpmPhp80LogLocation }}"
+    - "{{ phpDebianFpmPhp81LogLocation }}"
   when: webService|default("") == "httpd"
 
-- name: Create php session folder httpd
+- name: PHP | Debian | Create php session folder httpd
   file:
     group: "apache"
     owner: "apache"
@@ -179,7 +179,7 @@
     - "/var/lib/php/wsdlcache"
   when: webService|default("") == "httpd"
 
-- name: Create log directories nginx
+- name: PHP | Debian | Create log directories nginx
   file:
     group: "nginx"
     owner: "nginx"
@@ -187,17 +187,17 @@
     path: "{{ item }}"
     state: "directory"
   with_items:
-    - "{{ fpmPhp56LogLocation }}"
-    - "{{ fpmPhp70LogLocation }}"
-    - "{{ fpmPhp71LogLocation }}"
-    - "{{ fpmPhp72LogLocation }}"
-    - "{{ fpmPhp73LogLocation }}"
-    - "{{ fpmPhp74LogLocation }}"
-    - "{{ fpmPhp80LogLocation }}"
-    - "{{ fpmPhp81LogLocation }}"
+    - "{{ phpDebianFpmPhp56LogLocation }}"
+    - "{{ phpDebianFpmPhp70LogLocation }}"
+    - "{{ phpDebianFpmPhp71LogLocation }}"
+    - "{{ phpDebianFpmPhp72LogLocation }}"
+    - "{{ phpDebianFpmPhp73LogLocation }}"
+    - "{{ phpDebianFpmPhp74LogLocation }}"
+    - "{{ phpDebianFpmPhp80LogLocation }}"
+    - "{{ phpDebianFpmPhp81LogLocation }}"
   when: webService|default("") == "nginx"
 
-- name: Create php session folder nginx
+- name: PHP | Debian | Create php session folder nginx
   file:
     group: "nginx"
     owner: "nginx"

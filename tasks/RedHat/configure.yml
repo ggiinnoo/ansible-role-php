@@ -7,9 +7,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate56 }}", dest: "{{ fpmConfLocation56 }}"}
-    - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpiniConfLocation56 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ fpmWrapperLocation56 }}"}
+    - {src: "{{ fpmConfLocationTemplate56 }}", dest: "{{ phpRedHatFpmConfLocation56 }}"}
+    - {src: "{{ phpiniConfLocationTemplate56 }}", dest: "{{ phpRedHatPhpiniConfLocation56 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate56 }}", dest: "{{ phpRedHatFpmWrapperLocation56 }}"}
   when: php56 is defined
   notify: RedHatphp56Service
   loop_control:
@@ -20,9 +20,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate70 }}", dest: "{{ fpmConfLocation70 }}"}
-    - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpiniConfLocation70 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ fpmWrapperLocation70 }}"}
+    - {src: "{{ fpmConfLocationTemplate70 }}", dest: "{{ phpRedHatFpmConfLocation70 }}"}
+    - {src: "{{ phpiniConfLocationTemplate70 }}", dest: "{{ phpRedHatPhpiniConfLocation70 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate70 }}", dest: "{{ phpRedHatFpmWrapperLocation70 }}"}
   when: php70 is defined
   notify: RedHatphp70Service
   loop_control:
@@ -33,9 +33,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate71 }}", dest: "{{ fpmConfLocation71 }}"}
-    - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpiniConfLocation71 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ fpmWrapperLocation71 }}"}
+    - {src: "{{ fpmConfLocationTemplate71 }}", dest: "{{ phpRedHatFpmConfLocation71 }}"}
+    - {src: "{{ phpiniConfLocationTemplate71 }}", dest: "{{ phpRedHatPhpiniConfLocation71 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate71 }}", dest: "{{ phpRedHatFpmWrapperLocation71 }}"}
   when: php71 is defined
   notify: RedHatphp71Service
   loop_control:
@@ -46,9 +46,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate72 }}", dest: "{{ fpmConfLocation72 }}"}
-    - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpiniConfLocation72 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ fpmWrapperLocation72 }}"}
+    - {src: "{{ fpmConfLocationTemplate72 }}", dest: "{{ phpRedHatFpmConfLocation72 }}"}
+    - {src: "{{ phpiniConfLocationTemplate72 }}", dest: "{{ phpRedHatPhpiniConfLocation72 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate72 }}", dest: "{{ phpRedHatFpmWrapperLocation72 }}"}
   when: php72 is defined
   notify: RedHatphp72Service
   loop_control:
@@ -59,9 +59,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate73 }}", dest: "{{ fpmConfLocation73 }}"}
-    - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpiniConfLocation73 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ fpmWrapperLocation73 }}"}
+    - {src: "{{ fpmConfLocationTemplate73 }}", dest: "{{ phpRedHatFpmConfLocation73 }}"}
+    - {src: "{{ phpiniConfLocationTemplate73 }}", dest: "{{ phpRedHatPhpiniConfLocation73 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate73 }}", dest: "{{ phpRedHatFpmWrapperLocation73 }}"}
   when: php73 is defined
   notify: RedHatphp73Service
   loop_control:
@@ -72,9 +72,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate74 }}", dest: "{{ fpmConfLocation74 }}"}
-    - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpiniConfLocation74 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ fpmWrapperLocation74 }}"}
+    - {src: "{{ fpmConfLocationTemplate74 }}", dest: "{{ phpRedHatFpmConfLocation74 }}"}
+    - {src: "{{ phpiniConfLocationTemplate74 }}", dest: "{{ phpRedHatPhpiniConfLocation74 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate74 }}", dest: "{{ phpRedHatFpmWrapperLocation74 }}"}
   when: php74 is defined
   notify: RedHatphp74Service
   loop_control:
@@ -85,9 +85,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate80 }}", dest: "{{ fpmConfLocation80 }}"}
-    - {src: "{{ phpiniConfLocationTemplate80 }}", dest: "{{ phpiniConfLocation80 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate80 }}", dest: "{{ fpmWrapperLocation80 }}"}
+    - {src: "{{ fpmConfLocationTemplate80 }}", dest: "{{ phpRedHatFpmConfLocation80 }}"}
+    - {src: "{{ phpiniConfLocationTemplate80 }}", dest: "{{ phpRedHatPhpiniConfLocation80 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate80 }}", dest: "{{ phpRedHatFpmWrapperLocation80 }}"}
   when: php80 is defined
   notify: RedHatphp80Service
   loop_control:
@@ -98,9 +98,9 @@
     dest: "{{ item.dest }}"
     src: "{{ item.src }}"
   loop:
-    - {src: "{{ fpmConfLocationTemplate81 }}", dest: "{{ fpmConfLocation81 }}"}
-    - {src: "{{ phpiniConfLocationTemplate81 }}", dest: "{{ phpiniConfLocation81 }}"}
-    - {src: "{{ fpmWrapperLocationTemplate81 }}", dest: "{{ fpmWrapperLocation81 }}"}
+    - {src: "{{ fpmConfLocationTemplate81 }}", dest: "{{ phpRedHatFpmConfLocation81 }}"}
+    - {src: "{{ phpiniConfLocationTemplate81 }}", dest: "{{ phpRedHatPhpiniConfLocation81 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate81 }}", dest: "{{ phpRedHatFpmWrapperLocation81 }}"}
   when: php81 is defined
   notify: RedHatphp81Service
   loop_control:
@@ -115,7 +115,7 @@
 # script wrapper files permissions
 - name: Set permissions wrapper script's
   file:
-    path: "{{ cgiBinLocation }}"
+    path: "{{ phpRedHatCGIBinLocation }}"
     mode: "0755"
     recurse: "true"
     state: "directory"
@@ -129,7 +129,7 @@
     - webService|default("") == "httpd" and phpRedHatNginxPackageName not in ansible_facts.packages
 
 # php conf template for nginx
-- name: Nginx php.conf file
+- name: PHP | RedHat | Nginx php.conf file
   template:
     dest: "{{ nginxPHPConfLocation }}"
     src: "{{ nginxPHPConfLocationTemplate }}"
@@ -137,7 +137,7 @@
     - webService|default("") == "nginx" and phpRedHatApachePackageName not in ansible_facts.packages
 
 # set default php version for cli use
-- name: Set default php version
+- name: PHP | RedHat | Set default php version
   file:
     src: "{{ item.src }}"
     path: "{{ item.dest }}"
@@ -149,7 +149,7 @@
     - {src: "/opt/remi/php{{ phpVersionDefault }}/root/usr/bin/phar.phar", dest: "/usr/bin/php-phar"}
   when: phpVersionDefault is defined
 
-- name: Create log directories httpd
+- name: PHP | RedHat | Create log directories httpd
   file:
     group: "apache"
     owner: "apache"
@@ -157,17 +157,17 @@
     path: "{{ item }}"
     state: "directory"
   with_items:
-    - "{{ fpmPhp56LogLocation }}"
-    - "{{ fpmPhp70LogLocation }}"
-    - "{{ fpmPhp71LogLocation }}"
-    - "{{ fpmPhp72LogLocation }}"
-    - "{{ fpmPhp73LogLocation }}"
-    - "{{ fpmPhp74LogLocation }}"
-    - "{{ fpmPhp80LogLocation }}"
-    - "{{ fpmPhp81LogLocation }}"
+    - "{{ phpRedHatFpmPhp56LogLocation }}"
+    - "{{ phpRedHatFpmPhp70LogLocation }}"
+    - "{{ phpRedHatFpmPhp71LogLocation }}"
+    - "{{ phpRedHatFpmPhp72LogLocation }}"
+    - "{{ phpRedHatFpmPhp73LogLocation }}"
+    - "{{ phpRedHatFpmPhp74LogLocation }}"
+    - "{{ phpRedHatFpmPhp80LogLocation }}"
+    - "{{ phpRedHatFpmPhp81LogLocation }}"
   when: webService|default("") == "httpd"
 
-- name: Create php session folder httpd
+- name: PHP | RedHat | Create php session folder httpd
   file:
     group: "apache"
     owner: "apache"
@@ -179,7 +179,7 @@
     - "/var/lib/php/wsdlcache"
   when: webService|default("") == "httpd"
 
-- name: Create log directories nginx
+- name: PHP | RedHat | Create log directories nginx
   file:
     group: "nginx"
     owner: "nginx"
@@ -187,17 +187,17 @@
     path: "{{ item }}"
     state: "directory"
   with_items:
-    - "{{ fpmPhp56LogLocation }}"
-    - "{{ fpmPhp70LogLocation }}"
-    - "{{ fpmPhp71LogLocation }}"
-    - "{{ fpmPhp72LogLocation }}"
-    - "{{ fpmPhp73LogLocation }}"
-    - "{{ fpmPhp74LogLocation }}"
-    - "{{ fpmPhp80LogLocation }}"
-    - "{{ fpmPhp81LogLocation }}"
+    - "{{ phpRedHatFpmPhp56LogLocation }}"
+    - "{{ phpRedHatFpmPhp70LogLocation }}"
+    - "{{ phpRedHatFpmPhp71LogLocation }}"
+    - "{{ phpRedHatFpmPhp72LogLocation }}"
+    - "{{ phpRedHatFpmPhp73LogLocation }}"
+    - "{{ phpRedHatFpmPhp74LogLocation }}"
+    - "{{ phpRedHatFpmPhp80LogLocation }}"
+    - "{{ phpRedHatFpmPhp81LogLocation }}"
   when: webService|default("") == "nginx"
 
-- name: Create php session folder nginx
+- name: PHP | RedHat | Create php session folder nginx
   file:
     group: "nginx"
     owner: "nginx"

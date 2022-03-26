@@ -3,7 +3,7 @@
 - name: PHP | Debian | Create folder
   file:
     mode: "0755"
-    path: "{{ cgiBinLocation }}"
+    path: "{{ phpDebianCGIBinLocation }}"
     state: "directory"
 
 - name: PHP | Debian | Create nginx user
