@@ -31,6 +31,8 @@
 
 - name: PHP | Debian | Install GPG Key
   shell: "gpg --quiet --import --import-options import-show {{ phpDebianGPGKeyLocation }}"
+  register: phpDebianGpgInstall
+  failed_when: phpDebianGpgInstall.rc != 0
 
 - name: PHP | Debian | Generate full list to install
   set_fact:
