@@ -1,0 +1,35 @@
+---
+
+php71:
+  packages:
+    - php71
+    - php71-php-cli
+    - php71-php-common
+    - php71-php-fpm
+    - php71-php-pear
+    - php71-php-json
+    - php71-php-gd
+    - php71-php-intl
+    - php71-php-bcmath
+    - php71-php-opcache
+    - php71-php-pdo
+    - php71-runtime
+    - php71-php-wkhtmltox
+    - php71-php-mysqlnd
+    - php71-php-pecl-zip
+    - php71-php-gd
+  fpm:
+    fpmUser: "{{ webService|default('ansible') }}"
+    fpmGroup: "{{ webService|default('ansible') }}"
+    fpmListenOwner: "{{ webService|default('ansible') }}"
+    fpmListenGroup: "{{ webService|default('ansible') }}"
+    fpmListenMode: 0660
+    fpmSock: /var/run/php71-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp71LogLocation }}/www-slow.log"
+    fpmErrorLog: "{{ fpmPhp71LogLocation }}/www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /var/lib/php/session
+    fpmSessionSaveCache: /var/lib/php/wsdlcache
+  default: true

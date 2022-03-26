@@ -1,0 +1,31 @@
+---
+
+php73:
+  packages:
+    - php7.3
+    - php7.3-cli
+    - php7.3-common
+    - php7.3-fpm
+    - php7.3-json
+    - php7.3-gd
+    - php7.3-intl
+    - php7.3-bcmath
+    - php7.3-opcache
+    - php7.3-pdo
+    - php7.3-mysqlnd
+    - php7.3-gd
+  fpm:
+    fpmUser: "{{ webService|default('ansible') }}"
+    fpmGroup: "{{ webService|default('ansible') }}"
+    fpmListenOwner: "{{ webService|default('ansible') }}"
+    fpmListenGroup: "{{ webService|default('ansible') }}"
+    fpmListenMode: 0660
+    fpmSock: /var/run/php73-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp73LogLocation }}/www-slow.log"
+    fpmErrorLog: "{{ fpmPhp73LogLocation }}/www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /var/lib/php/session
+    fpmSessionSaveCache: /var/lib/php/wsdlcache
+  default: true

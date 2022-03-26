@@ -1,0 +1,7 @@
+---
+
+- name: PHP | RedHat | Installing php
+  include_tasks: RedHat/install.yml
+
+- name: PHP | RedHat | Configure php
+  include_tasks: RedHat/configure.yml

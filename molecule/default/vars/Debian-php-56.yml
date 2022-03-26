@@ -1,0 +1,30 @@
+---
+
+php56:
+  packages:
+    - php5.6
+    - php5.6-cli
+    - php5.6-common
+    - php5.6-fpm
+    - php5.6-zip
+    - php5.6-xml
+    - php5.6-mysqlnd
+    - php5.6-gd
+    - php5.6-soap
+    - php5.6-mssql
+  fpm:
+    fpmUser: "{{ webService|default('ansible') }}"
+    fpmGroup: "{{ webService|default('ansible') }}"
+    fpmListenOwner: "{{ webService|default('ansible') }}"
+    fpmListenGroup: "{{ webService|default('ansible') }}"
+    fpmListenMode: "0660"
+    fpmSock: /var/run/php56-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmPm: dynamic
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp56LogLocation }}www-slow.log"
+    fpmErrorLog: "{{ fpmPhp56LogLocation}}www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /opt/remi/php56/root/var/lib/php/session
+    fpmSessionSaveCache: /opt/remi/php56/root/var/lib/php/wsdlcache
+  default: true

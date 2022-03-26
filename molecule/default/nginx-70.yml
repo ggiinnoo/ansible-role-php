@@ -5,42 +5,13 @@
 
   vars:
     webService: "nginx"
-    php70:
-      packages:
-        - php70
-        - php70-php-cli
-        - php70-php-common
-        - php70-php-fpm
-        - php70-php-pear
-        - php70-php-json
-        - php70-php-gd
-        - php70-php-intl
-        - php70-php-bcmath
-        - php70-php-opcache
-        - php70-php-pdo
-        - php70-runtime
-        - php70-php-wkhtmltox
-        - php70-php-mysqlnd
-        - php70-php-pecl-zip
-        - php70-php-gd
-      fpm:
-        fpmUser: nginx
-        fpmGroup: nginx
-        fpmListenOwner: nginx
-        fpmListenGroup: nginx
-        fpmListenMode: 0660
-        fpmSock: /var/run/php70-fpm.sock
-        fpmListenAllowedClients: 127.0.0.1
-        fpmStatusPath: "/status"
-        fpmSlowLog: "{{ fpmPhp70LogLocation }}/www-slow.log"
-        fpmErrorLog: "{{ fpmPhp70LogLocation }}/www-error.log"
-        fpmSessionSaveHandler: files
-        fpmSessionsavePath: /var/lib/php/session
-        fpmSessionSaveCache: /var/lib/php/wsdlcache
-      default: true
+
+  pre_tasks:
+    - include_vars: "{{ ansible_os_family }}-php-70.yml"
 
   roles:
     - role: ggiinnoo.remi_repo
-    - role: ggiinnoo.webserver
-      version: 1.0.0
+      when: ansible_os_family == 'RedHat'
+    - role: ggiinnoo.nginx
+      version: 1.0.1
     - ansible-role-php

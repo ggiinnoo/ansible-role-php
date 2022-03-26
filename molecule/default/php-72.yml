@@ -3,37 +3,10 @@
   hosts: all
   become: true
 
-  vars:
-    php72:
-      packages:
-        - php72
-        - php72-php-cli
-        - php72-php-common
-        - php72-php-fpm
-        - php72-php-pear
-        - php72-php-json
-        - php72-php-gd
-        - php72-php-intl
-        - php72-php-bcmath
-        - php72-php-opcache
-        - php72-php-pdo
-        - php72-runtime
-        - php72-php-wkhtmltox
-        - php72-php-mysqlnd
-        - php72-php-pecl-zip
-        - php72-php-gd
-      fpm:
-        fpmListenMode: 0660
-        fpmSock: /var/run/php72-fpm.sock
-        fpmListenAllowedClients: 127.0.0.1
-        fpmStatusPath: "/status"
-        fpmSlowLog: "{{ fpmPhp72LogLocation }}/www-slow.log"
-        fpmErrorLog: "{{ fpmPhp72LogLocation }}/www-error.log"
-        fpmSessionSaveHandler: files
-        fpmSessionsavePath: /var/lib/php/session
-        fpmSessionSaveCache: /var/lib/php/wsdlcache
-      default: true
+  pre_tasks:
+    - include_vars: "{{ ansible_os_family }}-php-72.yml"
 
   roles:
     - role: ggiinnoo.remi_repo
+      when: ansible_os_family == 'RedHat'
     - ansible-role-php

@@ -1,7 +1,7 @@
 ---
 
 # setup/config fpm
-- name: php 56 template pool
+- name: PHP | RedHat | php 56 template pool
   template:
     dest: "{{ fpmDLocation56 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -11,7 +11,7 @@
   when: php56 is defined
   notify: php56Service
 
-- name: php 70 template pool
+- name: PHP | RedHat | php 70 template pool
   template:
     dest: "{{ fpmDLocation70 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -21,7 +21,7 @@
   when: php70 is defined
   notify: php70Service
 
-- name: php 71 template pool
+- name: PHP | RedHat | php 71 template pool
   template:
     dest: "{{ fpmDLocation71 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -31,7 +31,7 @@
   when: php71 is defined
   notify: php71Service
 
-- name: php 72 template pool
+- name: PHP | RedHat | php 72 template pool
   template:
     dest: "{{ fpmDLocation72 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -41,7 +41,7 @@
   when: php72 is defined
   notify: php72Service
 
-- name: php 73 template pool
+- name: PHP | RedHat | php 73 template pool
   template:
     dest: "{{ fpmDLocation73 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -51,7 +51,7 @@
   when: php73 is defined
   notify: php73Service
 
-- name: php 74 template pool
+- name: PHP | RedHat | php 74 template pool
   template:
     dest: "{{ fpmDLocation74 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -61,7 +61,7 @@
   when: php74 is defined
   notify: php74Service
 
-- name: php 80 template pool
+- name: PHP | RedHat | php 80 template pool
   template:
     dest: "{{ fpmDLocation80 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
@@ -71,7 +71,7 @@
   when: php80 is defined
   notify: php80Service
 
-- name: php 81 template pool
+- name: PHP | RedHat | php 81 template pool
   template:
     dest: "{{ fpmDLocation81 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"

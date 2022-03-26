@@ -38,7 +38,23 @@ jobs:
     strategy:
       matrix:
         os: ['centos7']
-        service: ['httpd', 'nginx', 'php']
+        service: ['nginx', 'php']
+        version: ['56', '70', '71', '72', '73', '74', '80', '81']
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
+      - uses: gofrolist/molecule-action@v2
+        env:
+          DOCKER_IMAGE: ${{ matrix.os }}
+          DOCKER_SERVICE: ${{ matrix.service }}
+          DOCKER_VERSION: ${{ matrix.version }}
+  Debian:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ['debian10', 'debian11']
+        service: ['nginx', 'php']
         version: ['56', '70', '71', '72', '73', '74', '80', '81']
     steps:
       - uses: actions/checkout@v2

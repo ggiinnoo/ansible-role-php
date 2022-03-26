@@ -1,0 +1,5 @@
+{% if ansible_distribution_major_version == '11' %}
+deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ bullseye main
+{% elif ansible_distribution_major_version == '10' %}
+deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ buster main
+{% endif %}

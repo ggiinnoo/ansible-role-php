@@ -1,0 +1,7 @@
+---
+
+- name: PHP | Debian | Installing php
+  include_tasks: Debian/install.yml
+
+- name: PHP | Debian | Configure php
+  include_tasks: Debian/configure.yml
