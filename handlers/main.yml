@@ -4,49 +4,49 @@
 
 - name: Debianphp56Service
   service:
-    name: php56-fpm
+    name: php5.6-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp70Service
   service:
-    name: php70-fpm
+    name: php7.0-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp71Service
   service:
-    name: php71-fpm
+    name: php7.1-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp72Service
   service:
-    name: php72-fpm
+    name: php7.2-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp73Service
   service:
-    name: php73-fpm
+    name: php7.3-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp74Service
   service:
-    name: php74-fpm
+    name: php7.4-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp80Service
   service:
-    name: php80-fpm
+    name: php8.0-fpm
     state: restarted
     enabled: true
 
 - name: Debianphp81Service
   service:
-    name: php81-fpm
+    name: php8.1-fpm
     state: restarted
     enabled: true
 
