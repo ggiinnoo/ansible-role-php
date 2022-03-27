@@ -25,21 +25,23 @@
     dest: "{{ phpDebianRepoDestination }}"
   when: ansible_distribution == 'Debian'
 
-- name: PHP | Ubuntu | Place php repo file
-  template:
-    src: "{{ phpUbuntuRepoSource }}"
-    dest: "{{ phpUbuntuRepoDestination }}"
-  when: ansible_distribution == 'Ubuntu'
-
 - name: PHP | Debian | Get GPG key
   get_url:
     url: "{{ phpDebianGPGKeyUrl }}"
     dest: "{{ phpDebianGPGKeyLocation }}"
+  when: ansible_distribution == 'Debian'
 
 - name: PHP | Debian | Install GPG Key
   shell: "gpg --quiet --import --import-options import-show {{ phpDebianGPGKeyLocation }}"
   register: phpDebianGpgInstall
   changed_when: phpDebianGpgInstall.rc != 0
+  when: ansible_distribution == 'Debian'
+
+- name: PHP | Ubuntu | Place php repo file
+  apt_repository:
+    repo: "{{ phpUbuntuRepoName }}"
+    state: "{{ phpUbuntuRepoState }}"
+  when: ansible_distribution == 'Ubuntu'
 
 - name: PHP | Debian | Generate full list to install
   set_fact:

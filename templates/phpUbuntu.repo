@@ -1,4 +1,0 @@
-{% if ansible_distribution_major_version == '20' %}
-deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] http://ppa.launchpad.net/ondrej/php/ubuntu focal main
-# deb-src [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] http://ppa.launchpad.net/ondrej/php/ubuntu focal main
-{% endif %}
