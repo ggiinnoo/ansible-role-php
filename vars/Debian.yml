@@ -11,6 +11,9 @@ phpDebianPackages:
   - curl
   - gpg
 
+phpUbuntuRepoName: "ppa:ondrej/php"
+phpUbuntuRepoState: "present"
+
 phpDebianRepoSource: "{{ role_path }}/templates/phpDebian.repo"
 phpDebianRepoDestination: "/etc/apt/sources.list.d/php.list"
 
