@@ -23,6 +23,13 @@
   template:
     src: "{{ phpDebianRepoSource }}"
     dest: "{{ phpDebianRepoDestination }}"
+  when: ansible_distribution == 'Debian'
+
+- name: PHP | Ubuntu | Place php repo file
+  template:
+    src: "{{ phpUbuntuRepoSource }}"
+    dest: "{{ phpUbuntuRepoDestination }}"
+  when: ansible_distribution == 'Ubuntu'
 
 - name: PHP | Debian | Get GPG key
   get_url:
