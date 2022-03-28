@@ -9,7 +9,7 @@
     phpversion: php56
   loop: "{{ Users }}"
   when: php56 is defined
-  notify: php56Service
+  notify: Debianphp56Service
 
 - name: PHP | Debian | php 70 template pool
   template:
@@ -19,7 +19,7 @@
     phpversion: php70
   loop: "{{ Users }}"
   when: php70 is defined
-  notify: php70Service
+  notify: Debianphp70Service
 
 - name: PHP | Debian | php 71 template pool
   template:
@@ -29,7 +29,7 @@
     phpversion: php71
   loop: "{{ Users }}"
   when: php71 is defined
-  notify: php71Service
+  notify: Debianphp71Service
 
 - name: PHP | Debian | php 72 template pool
   template:
@@ -39,7 +39,7 @@
     phpversion: php72
   loop: "{{ Users }}"
   when: php72 is defined
-  notify: php72Service
+  notify: Debianphp72Service
 
 - name: PHP | Debian | php 73 template pool
   template:
@@ -49,7 +49,7 @@
     phpversion: php73
   loop: "{{ Users }}"
   when: php73 is defined
-  notify: php73Service
+  notify: Debianphp73Service
 
 - name: PHP | Debian | php 74 template pool
   template:
@@ -59,7 +59,7 @@
     phpversion: php74
   loop: "{{ Users }}"
   when: php74 is defined
-  notify: php74Service
+  notify: Debianphp74Service
 
 - name: PHP | Debian | php 80 template pool
   template:
@@ -69,7 +69,7 @@
     phpversion: php80
   loop: "{{ Users }}"
   when: php80 is defined
-  notify: php80Service
+  notify: Debianphp80Service
 
 - name: PHP | Debian | php 81 template pool
   template:
@@ -79,4 +79,4 @@
     phpversion: php81
   loop: "{{ Users }}"
   when: php81 is defined
-  notify: php80Service
+  notify: Debianphp80Service
