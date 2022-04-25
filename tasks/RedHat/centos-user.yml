@@ -3,80 +3,81 @@
 # setup/config fpm
 - name: PHP | RedHat | php 56 template pool
   template:
-    dest: "{{ fpmDLocation56 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation56 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php56
   loop: "{{ Users }}"
   when: php56 is defined
-  notify: php56Service
+  notify: RedHatphp56Service
 
 - name: PHP | RedHat | php 70 template pool
   template:
-    dest: "{{ fpmDLocation70 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation70 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php70
   loop: "{{ Users }}"
   when: php70 is defined
-  notify: php70Service
+  notify: RedHatphp70Service
 
 - name: PHP | RedHat | php 71 template pool
   template:
-    dest: "{{ fpmDLocation71 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation71 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php71
   loop: "{{ Users }}"
   when: php71 is defined
-  notify: php71Service
+  notify: RedHatphp71Service
 
 - name: PHP | RedHat | php 72 template pool
   template:
-    dest: "{{ fpmDLocation72 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation72 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php72
   loop: "{{ Users }}"
   when: php72 is defined
-  notify: php72Service
+  notify: RedHatphp72Service
 
 - name: PHP | RedHat | php 73 template pool
   template:
-    dest: "{{ fpmDLocation73 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation73 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php73
   loop: "{{ Users }}"
   when: php73 is defined
-  notify: php73Service
+  notify: RedHatphp73Service
 
 - name: PHP | RedHat | php 74 template pool
   template:
-    dest: "{{ fpmDLocation74 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation74 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php74
   loop: "{{ Users }}"
   when: php74 is defined
-  notify: php74Service
+  notify: RedHatphp74Service
 
 - name: PHP | RedHat | php 80 template pool
   template:
-    dest: "{{ fpmDLocation80 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation80 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php80
   loop: "{{ Users }}"
   when: php80 is defined
-  notify: php80Service
+  notify: RedHatphp80Service
 
 - name: PHP | RedHat | php 81 template pool
   template:
-    dest: "{{ fpmDLocation81 }}/{{ item.name }}.conf"
+    dest: "{{ phpRedHatFpmDLocation81 }}/{{ item.name }}.conf"
     src: "{{ fpmConfLocationTemplateUser }}"
   vars:
     phpversion: php81
   loop: "{{ Users }}"
   when: php81 is defined
-  notify: php80Service
+  notify: RedHatphp81Service
+
