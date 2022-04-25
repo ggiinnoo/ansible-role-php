@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: php
+  namespace: ggiinnoo
   author: Gino Jansen
   description: Configure php
   license: license (BSD, MIT)
