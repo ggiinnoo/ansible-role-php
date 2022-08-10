@@ -1,0 +1,26 @@
+; {{ ansible_managed }}
+[www]
+
+user = {{ php55.fpm.fpmUser | default ("apache") }}
+group = {{ php55.fpm.fpmGroup | default ("apache") }}
+
+listen.owner = {{ php55.fpm.fpmListenOwner | default ("nobody") }}
+listen.group = {{ php55.fpm.fpmListenGroup | default ("nobody") }}
+listen.mode = {{ php55.fpm.fpmListenMode | default ("0660") }}
+
+listen = {{ php55.fpm.fpmSock | default("/var/run/php55-fpm.sock") }}
+
+listen.allowed_clients = {{ php55.fpm.fpmListenAllowedClients | default ("127.0.0.1") }}
+
+pm = ondemand
+pm.max_children = 100
+pm.status_path = /phpfpm-status
+
+slowlog = {{ php55.fpm.fpmSlowLog | default ("/opt/remi/php55/root/var/log/php-fpm/www-slow.log") }}
+
+php_admin_value[error_log] = {{ php55.fpm.fpmErrorLog | default ("/opt/remi/php55/root/var/log/php-fpm/www-error.log") }}
+php_admin_flag[log_errors] = on
+
+php_value[session.save_handler] = {{ php55.fpm.fpmSessionSaveHandler | default ("files") }}
+php_value[session.save_path]    = {{ php55.fpm.fpmSessionsavePath | default ("/opt/remi/php55/root/var/lib/php/session") }}
+php_value[soap.wsdl_cache_dir]  = {{ php55.fpm.fpmSessionSaveCache | default ("/opt/remi/php55/root/var/lib/php/wsdlcache") }}

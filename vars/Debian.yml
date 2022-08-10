@@ -21,6 +21,8 @@ phpDebianGPGKeyUrl: "https://packages.sury.org/php/apt.gpg"
 phpDebianGPGKeyLocation: "/usr/share/keyrings/deb.sury.org-php.gpg"
 
 # www.conf locations per version
+phpDebianFpmConfLocation54: /etc/php/5.4/fpm/pool.d/www.conf
+phpDebianFpmConfLocation55: /etc/php/5.5/fpm/pool.d/www.conf
 phpDebianFpmConfLocation56: /etc/php/5.6/fpm/pool.d/www.conf
 phpDebianFpmConfLocation70: /etc/php/7.0/fpm/pool.d/www.conf
 phpDebianFpmConfLocation71: /etc/php/7.1/fpm/pool.d/www.conf
@@ -31,6 +33,8 @@ phpDebianFpmConfLocation80: /etc/php/8.0/fpm/pool.d/www.conf
 phpDebianFpmConfLocation81: /etc/php/8.1/fpm/pool.d/www.conf
 
 # pool.d locations
+phpDebianFpmDLocation54: /etc/php/5.4/fpm/pool.d
+phpDebianFpmDLocation55: /etc/php/5.5/fpm/pool.d
 phpDebianFpmDLocation56: /etc/php/5.6/fpm/pool.d
 phpDebianFpmDLocation70: /etc/php/7.0/fpm/pool.d
 phpDebianFpmDLocation71: /etc/php/7.1/fpm/pool.d
@@ -41,6 +45,8 @@ phpDebianFpmDLocation80: /etc/php/8.0/fpm/pool.d
 phpDebianFpmDLocation81: /etc/php/8.1/fpm/pool.d
 
 # php.ini locations
+phpDebianPhpiniConfLocation54: /etc/php/5.4/fpm/php.ini
+phpDebianPhpiniConfLocation55: /etc/php/5.5/fpm/php.ini
 phpDebianPhpiniConfLocation56: /etc/php/5.6/fpm/php.ini
 phpDebianPhpiniConfLocation70: /etc/php/7.0/fpm/php.ini
 phpDebianPhpiniConfLocation71: /etc/php/7.1/fpm/php.ini
@@ -53,6 +59,8 @@ phpDebianPhpiniConfLocation81: /etc/php/8.1/fpm/php.ini
 # /etc/php/7.4/fpm/php.ini
 
 # Script wrapper location
+phpDebianFpmWrapperLocation54: /var/www/cgi-bin/php54.fcgi
+phpDebianFpmWrapperLocation55: /var/www/cgi-bin/php55.fcgi
 phpDebianFpmWrapperLocation56: /var/www/cgi-bin/php56.fcgi
 phpDebianFpmWrapperLocation70: /var/www/cgi-bin/php70.fcgi
 phpDebianFpmWrapperLocation71: /var/www/cgi-bin/php71.fcgi

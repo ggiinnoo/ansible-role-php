@@ -1,7 +1,32 @@
 ---
 
-
 # setup/config fpm
+- name: PHP | Debian | php 54 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate54 }}", dest: "{{ phpDebianFpmConfLocation54 }}"}
+    - {src: "{{ phpiniConfLocationTemplate54 }}", dest: "{{ phpDebianPhpiniConfLocation54 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate54 }}", dest: "{{ phpDebianFpmWrapperLocation54 }}"}
+  when: php54 is defined
+  notify: Debianphp54Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
+
+- name: PHP | Debian | php 55 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate55 }}", dest: "{{ phpDebianFpmConfLocation55 }}"}
+    - {src: "{{ phpiniConfLocationTemplate55 }}", dest: "{{ phpDebianPhpiniConfLocation55 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate55 }}", dest: "{{ phpDebianFpmWrapperLocation55 }}"}
+  when: php55 is defined
+  notify: Debianphp55Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
+
 - name: PHP | Debian | php 56 template's
   template:
     dest: "{{ item.dest }}"
@@ -157,6 +182,8 @@
     path: "{{ item }}"
     state: "directory"
   with_items:
+    - "{{ fpmPhp54LogLocation }}"
+    - "{{ fpmPhp55LogLocation }}"
     - "{{ fpmPhp56LogLocation }}"
     - "{{ fpmPhp70LogLocation }}"
     - "{{ fpmPhp71LogLocation }}"
@@ -187,6 +214,8 @@
     path: "{{ item }}"
     state: "directory"
   with_items:
+    - "{{ fpmPhp54LogLocation }}"
+    - "{{ fpmPhp55LogLocation }}"
     - "{{ fpmPhp56LogLocation }}"
     - "{{ fpmPhp70LogLocation }}"
     - "{{ fpmPhp71LogLocation }}"

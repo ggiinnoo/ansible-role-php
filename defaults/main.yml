@@ -1,6 +1,8 @@
 ---
 
 # fpm template location.
+fpmConfLocationTemplate54: "{{ role_path }}/templates/www/www-54.conf.j2"
+fpmConfLocationTemplate55: "{{ role_path }}/templates/www/www-55.conf.j2"
 fpmConfLocationTemplate56: "{{ role_path }}/templates/www/www-56.conf.j2"
 fpmConfLocationTemplate70: "{{ role_path }}/templates/www/www-70.conf.j2"
 fpmConfLocationTemplate71: "{{ role_path }}/templates/www/www-71.conf.j2"
@@ -14,6 +16,8 @@ fpmConfLocationTemplate81: "{{ role_path }}/templates/www/www-81.conf.j2"
 fpmConfLocationTemplateUser: "{{ role_path }}/templates/www/www-user.conf.j2"
 
 # php.ini template location
+phpiniConfLocationTemplate54: "{{ role_path }}/templates/ini/php54.ini.j2"
+phpiniConfLocationTemplate55: "{{ role_path }}/templates/ini/php55.ini.j2"
 phpiniConfLocationTemplate56: "{{ role_path }}/templates/ini/php56.ini.j2"
 phpiniConfLocationTemplate70: "{{ role_path }}/templates/ini/php70.ini.j2"
 phpiniConfLocationTemplate71: "{{ role_path }}/templates/ini/php71.ini.j2"
@@ -24,6 +28,8 @@ phpiniConfLocationTemplate80: "{{ role_path }}/templates/ini/php80.ini.j2"
 phpiniConfLocationTemplate81: "{{ role_path }}/templates/ini/php81.ini.j2"
 
 # bash script location fcgi
+fpmWrapperLocationTemplate54: "{{ role_path }}/templates/wrapper/php54.fcgi.j2"
+fpmWrapperLocationTemplate55: "{{ role_path }}/templates/wrapper/php55.fcgi.j2"
 fpmWrapperLocationTemplate56: "{{ role_path }}/templates/wrapper/php56.fcgi.j2"
 fpmWrapperLocationTemplate70: "{{ role_path }}/templates/wrapper/php70.fcgi.j2"
 fpmWrapperLocationTemplate71: "{{ role_path }}/templates/wrapper/php71.fcgi.j2"
@@ -42,6 +48,8 @@ nginxPHPConfLocation: /etc/nginx/conf.d/php.conf
 nginxPHPConfLocationTemplate: "{{ role_path }}/templates/php-nginx.conf.j2"
 
 # Log folder location's
+fpmPhp54LogLocation: "/var/log/php-fpm54/"
+fpmPhp55LogLocation: "/var/log/php-fpm55/"
 fpmPhp56LogLocation: "/var/log/php-fpm56/"
 fpmPhp70LogLocation: "/var/log/php-fpm70/"
 fpmPhp71LogLocation: "/var/log/php-fpm71/"

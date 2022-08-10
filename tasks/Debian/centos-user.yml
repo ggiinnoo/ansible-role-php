@@ -1,6 +1,26 @@
 ---
 
 # setup/config fpm
+- name: PHP | Debian | php 54 template pool
+  template:
+    dest: "{{ phpDebianFpmDLocation54 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php54
+  loop: "{{ Users }}"
+  when: php54 is defined
+  notify: Debianphp54Service
+
+- name: PHP | Debian | php 55 template pool
+  template:
+    dest: "{{ phpDebianFpmDLocation55 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php55
+  loop: "{{ Users }}"
+  when: php55 is defined
+  notify: Debianphp55Service
+
 - name: PHP | Debian | php 56 template pool
   template:
     dest: "{{ phpDebianFpmDLocation56 }}/{{ item.name }}.conf"

@@ -1,6 +1,17 @@
 ---
 
 ## Debian Handlers ##
+- name: Debianphp54Service
+  service:
+    name: php5.4-fpm
+    state: restarted
+    enabled: true
+
+- name: Debianphp55Service
+  service:
+    name: php5.5-fpm
+    state: restarted
+    enabled: true
 
 - name: Debianphp56Service
   service:
@@ -51,6 +62,18 @@
     enabled: true
 
 ## RedHat Handlers ##
+- name: RedHatphp54Service
+  service:
+    name: php54-php-fpm
+    state: restarted
+    enabled: true
+
+- name: RedHatphp55Service
+  service:
+    name: php55-php-fpm
+    state: restarted
+    enabled: true
+
 - name: RedHatphp56Service
   service:
     name: php56-php-fpm

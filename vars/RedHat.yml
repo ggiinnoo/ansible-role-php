@@ -9,6 +9,8 @@ phpRedHatPhpRedHatremiRepo:
   - remi-safe
 
 # www.conf locations per version
+phpRedHatFpmConfLocation54: /opt/remi/php54/root/etc/php-fpm.d/www.conf
+phpRedHatFpmConfLocation55: /opt/remi/php55/root/etc/php-fpm.d/www.conf
 phpRedHatFpmConfLocation56: /etc/opt/remi/php56/php-fpm.d/www.conf
 phpRedHatFpmConfLocation70: /etc/opt/remi/php70/php-fpm.d/www.conf
 phpRedHatFpmConfLocation71: /etc/opt/remi/php71/php-fpm.d/www.conf
@@ -19,6 +21,8 @@ phpRedHatFpmConfLocation80: /etc/opt/remi/php80/php-fpm.d/www.conf
 phpRedHatFpmConfLocation81: /etc/opt/remi/php81/php-fpm.d/www.conf
 
 # php-fpm.d locations
+phpRedHatFpmDLocation54: /opt/remi/php54/root/etc/php-fpm.d
+phpRedHatFpmDLocation55: /opt/remi/php55/root/etc/php-fpm.d
 phpRedHatFpmDLocation56: /etc/opt/remi/php56/php-fpm.d
 phpRedHatFpmDLocation70: /etc/opt/remi/php70/php-fpm.d
 phpRedHatFpmDLocation71: /etc/opt/remi/php71/php-fpm.d
@@ -29,6 +33,8 @@ phpRedHatFpmDLocation80: /etc/opt/remi/php80/php-fpm.d
 phpRedHatFpmDLocation81: /etc/opt/remi/php81/php-fpm.d
 
 # php.ini locations
+phpRedHatPhpiniConfLocation54: /opt/remi/php54/root/etc/php.ini
+phpRedHatPhpiniConfLocation55: /opt/remi/php55/root/etc/php.ini
 phpRedHatPhpiniConfLocation56: /etc/opt/remi/php56/php.ini
 phpRedHatPhpiniConfLocation70: /etc/opt/remi/php70/php.ini
 phpRedHatPhpiniConfLocation71: /etc/opt/remi/php71/php.ini
@@ -39,6 +45,8 @@ phpRedHatPhpiniConfLocation80: /etc/opt/remi/php80/php.ini
 phpRedHatPhpiniConfLocation81: /etc/opt/remi/php81/php.ini
 
 # Script wrapper location
+phpRedHatFpmWrapperLocation54: /var/www/cgi-bin/php54.fcgi
+phpRedHatFpmWrapperLocation55: /var/www/cgi-bin/php55.fcgi
 phpRedHatFpmWrapperLocation56: /var/www/cgi-bin/php56.fcgi
 phpRedHatFpmWrapperLocation70: /var/www/cgi-bin/php70.fcgi
 phpRedHatFpmWrapperLocation71: /var/www/cgi-bin/php71.fcgi

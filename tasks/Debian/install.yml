@@ -45,7 +45,7 @@
 
 - name: PHP | Debian | Generate full list to install
   set_fact:
-    phpItems: "{{ php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) + php81.packages|default([])}}"
+    phpItems: "{{ php54.packages|default([]) + php55.packages|default([]) + php56.packages|default([]) + php70.packages|default([]) + php71.packages|default([]) + php72.packages|default([]) + php73.packages|default([]) + php74.packages|default([]) + php80.packages|default([]) + php81.packages|default([])}}"
 
 - name: PHP | Debian | Install php items
   apt:

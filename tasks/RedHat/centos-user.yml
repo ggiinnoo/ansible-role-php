@@ -1,6 +1,26 @@
 ---
 
 # setup/config fpm
+- name: PHP | RedHat | php 54 template pool
+  template:
+    dest: "{{ phpRedHatFpmDLocation54 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php54
+  loop: "{{ Users }}"
+  when: php54 is defined
+  notify: RedHatphp54Service
+
+- name: PHP | RedHat | php 55 template pool
+  template:
+    dest: "{{ phpRedHatFpmDLocation55 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php55
+  loop: "{{ Users }}"
+  when: php55 is defined
+  notify: RedHatphp55Service
+
 - name: PHP | RedHat | php 56 template pool
   template:
     dest: "{{ phpRedHatFpmDLocation56 }}/{{ item.name }}.conf"
