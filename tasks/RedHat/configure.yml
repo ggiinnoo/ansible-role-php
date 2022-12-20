@@ -106,6 +106,19 @@
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
+- name: php 82 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate82 }}", dest: "{{ phpRedHatFpmConfLocation82 }}"}
+    - {src: "{{ phpiniConfLocationTemplate82 }}", dest: "{{ phpRedHatPhpiniConfLocation82 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate82 }}", dest: "{{ phpRedHatFpmWrapperLocation82 }}"}
+  when: php82 is defined
+  notify: RedHatphp82Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
+
 # Include user config
 - name: Include user config
   include_tasks: user.yml
@@ -165,6 +178,7 @@
     - "{{ fpmPhp74LogLocation }}"
     - "{{ fpmPhp80LogLocation }}"
     - "{{ fpmPhp81LogLocation }}"
+    - "{{ fpmPhp82LogLocation }}"
   when: webService|default("") == "httpd"
 
 - name: PHP | RedHat | Create php session folder httpd
@@ -195,6 +209,7 @@
     - "{{ fpmPhp74LogLocation }}"
     - "{{ fpmPhp80LogLocation }}"
     - "{{ fpmPhp81LogLocation }}"
+    - "{{ fpmPhp82LogLocation }}"
   when: webService|default("") == "nginx"
 
 - name: PHP | RedHat | Create php session folder nginx

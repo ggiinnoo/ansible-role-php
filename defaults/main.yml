@@ -9,6 +9,7 @@ fpmConfLocationTemplate73: "{{ role_path }}/templates/www/www-73.conf.j2"
 fpmConfLocationTemplate74: "{{ role_path }}/templates/www/www-74.conf.j2"
 fpmConfLocationTemplate80: "{{ role_path }}/templates/www/www-80.conf.j2"
 fpmConfLocationTemplate81: "{{ role_path }}/templates/www/www-81.conf.j2"
+fpmConfLocationTemplate82: "{{ role_path }}/templates/www/www-82.conf.j2"
 
 # fpm template location user
 fpmConfLocationTemplateUser: "{{ role_path }}/templates/www/www-user.conf.j2"
@@ -22,6 +23,7 @@ phpiniConfLocationTemplate73: "{{ role_path }}/templates/ini/php73.ini.j2"
 phpiniConfLocationTemplate74: "{{ role_path }}/templates/ini/php74.ini.j2"
 phpiniConfLocationTemplate80: "{{ role_path }}/templates/ini/php80.ini.j2"
 phpiniConfLocationTemplate81: "{{ role_path }}/templates/ini/php81.ini.j2"
+phpiniConfLocationTemplate82: "{{ role_path }}/templates/ini/php82.ini.j2"
 
 # bash script location fcgi
 fpmWrapperLocationTemplate56: "{{ role_path }}/templates/wrapper/php56.fcgi.j2"
@@ -32,6 +34,7 @@ fpmWrapperLocationTemplate73: "{{ role_path }}/templates/wrapper/php73.fcgi.j2"
 fpmWrapperLocationTemplate74: "{{ role_path }}/templates/wrapper/php74.fcgi.j2"
 fpmWrapperLocationTemplate80: "{{ role_path }}/templates/wrapper/php80.fcgi.j2"
 fpmWrapperLocationTemplate81: "{{ role_path }}/templates/wrapper/php81.fcgi.j2"
+fpmWrapperLocationTemplate82: "{{ role_path }}/templates/wrapper/php82.fcgi.j2"
 
 # php.conf location for httpd
 httpdPHPConfLocation: /etc/httpd/conf.d/php.conf
@@ -50,6 +53,7 @@ fpmPhp73LogLocation: "/var/log/php-fpm73/"
 fpmPhp74LogLocation: "/var/log/php-fpm74/"
 fpmPhp80LogLocation: "/var/log/php-fpm80/"
 fpmPhp81LogLocation: "/var/log/php-fpm81/"
+fpmPhp82LogLocation: "/var/log/php-fpm82/"
 
 # fpm log config
 fpmPhpErrorLogLocation: "/var/log/php-fpm-error.log"

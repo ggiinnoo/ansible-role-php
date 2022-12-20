@@ -5,7 +5,11 @@ server{
 		try_files $uri $uri/ /index.php?$args;
 		fastcgi_index index.php;
 		fastcgi_intercept_errors on;
-		{% if php80 is defined %}
+		{% if php82 is defined %}
+		fastcgi_pass unix:/var/run/php82-fpm.sock;
+		{% elif php81 is defined %}
+		fastcgi_pass unix:/var/run/php81-fpm.sock;
+		{% elif php80 is defined %}
 		fastcgi_pass unix:/var/run/php80-fpm.sock;
 		{% elif php74 is defined %}
 		fastcgi_pass unix:/var/run/php74-fpm.sock;
