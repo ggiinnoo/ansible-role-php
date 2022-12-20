@@ -108,7 +108,7 @@
 
 # Include user config
 - name: Include user config
-  include_tasks: centos-user.yml
+  include_tasks: user.yml
   when:
     - Users is defined
 
