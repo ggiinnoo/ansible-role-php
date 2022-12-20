@@ -79,4 +79,15 @@
     phpversion: php81
   loop: "{{ Users }}"
   when: php81 is defined
-  notify: Debianphp80Service
+  notify: Debianphp81Service
+
+- name: PHP | Debian | php 82 template pool
+  template:
+    dest: "{{ phpDebianFpmDLocation82 }}/{{ item.name }}.conf"
+    src: "{{ fpmConfLocationTemplateUser }}"
+  vars:
+    phpversion: php82
+  loop: "{{ Users }}"
+  when: php81 is defined
+  notify: Debianphp82Service
+

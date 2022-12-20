@@ -1,6 +1,5 @@
 ---
 
-
 # setup/config fpm
 - name: PHP | Debian | php 56 template's
   template:
@@ -106,6 +105,19 @@
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
+- name: PHP | Debian | php 82 template's
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+  loop:
+    - {src: "{{ fpmConfLocationTemplate82 }}", dest: "{{ phpDebianFpmConfLocation82 }}"}
+    - {src: "{{ phpiniConfLocationTemplate82 }}", dest: "{{ phpDebianPhpiniConfLocation82 }}"}
+    - {src: "{{ fpmWrapperLocationTemplate82 }}", dest: "{{ phpDebianFpmWrapperLocation82 }}"}
+  when: php82 is defined
+  notify: Debianphp82Service
+  loop_control:
+    label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
+
 # Include user config
 - name: PHP | Debian | Include user config
   include_tasks: user.yml
@@ -164,6 +176,7 @@
     - "{{ fpmPhp74LogLocation }}"
     - "{{ fpmPhp80LogLocation }}"
     - "{{ fpmPhp81LogLocation }}"
+    - "{{ fpmPhp82LogLocation }}"
   when: webService|default("") == "httpd"
 
 - name: PHP | Debian | Create php session folder httpd
@@ -194,6 +207,7 @@
     - "{{ fpmPhp74LogLocation }}"
     - "{{ fpmPhp80LogLocation }}"
     - "{{ fpmPhp81LogLocation }}"
+    - "{{ fpmPhp82LogLocation }}"
   when: webService|default("") == "nginx"
 
 - name: PHP | Debian | Create php session folder nginx

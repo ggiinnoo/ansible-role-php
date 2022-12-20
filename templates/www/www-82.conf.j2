@@ -1,0 +1,26 @@
+; {{ ansible_managed }}
+[www]
+
+user = {{ php82.fpm.fpmUser | default ("apache") }}
+group = {{ php82.fpm.fpmGroup | default ("apache") }}
+
+listen.owner = {{ php82.fpm.fpmListenOwner | default ("nobody") }}
+listen.group = {{ php82.fpm.fpmListenGroup | default ("nobody") }}
+listen.mode = {{ php82.fpm.fpmListenMode | default ("0660") }}
+
+listen = {{ php82.fpm.fpmSock | default("/var/run/php82-fpm.sock") }}
+
+listen.allowed_clients = {{ php82.fpm.fpmListenAllowedClients | default ("127.0.0.1") }}
+
+pm = ondemand
+pm.max_children = 100
+pm.status_path = /phpfpm-status
+
+slowlog = {{ php82.fpm.fpmSlowLog | default ("/opt/remi/php82/root/var/log/php-fpm/www-slow.log") }}
+
+php_admin_value[error_log] = {{ php82.fpm.fpmErrorLog | default ("/opt/remi/php82/root/var/log/php-fpm/www-error.log") }}
+php_admin_flag[log_errors] = on
+
+php_value[session.save_handler] = {{ php82.fpm.fpmSessionSaveHandler | default ("files") }}
+php_value[session.save_path]    = {{ php82.fpm.fpmSessionsavePath | default ("/opt/remi/php82/root/var/lib/php/session") }}
+php_value[soap.wsdl_cache_dir]  = {{ php82.fpm.fpmSessionSaveCache | default ("/opt/remi/php82/root/var/lib/php/wsdlcache") }}

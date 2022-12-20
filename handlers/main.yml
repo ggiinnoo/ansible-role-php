@@ -50,6 +50,12 @@
     state: restarted
     enabled: true
 
+- name: Debianphp82Service
+  service:
+    name: php8.2-fpm
+    state: restarted
+    enabled: true
+
 ## RedHat Handlers ##
 - name: RedHatphp56Service
   service:
@@ -96,5 +102,11 @@
 - name: RedHatphp81Service
   service:
     name: php81-php-fpm
+    state: restarted
+    enabled: true
+
+- name: RedHatphp82Service
+  service:
+    name: php82-php-fpm
     state: restarted
     enabled: true
