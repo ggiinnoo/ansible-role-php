@@ -80,4 +80,3 @@
   loop: "{{ Users }}"
   when: php81 is defined
   notify: RedHatphp81Service
-

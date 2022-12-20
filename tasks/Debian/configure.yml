@@ -108,7 +108,7 @@
 
 # Include user config
 - name: PHP | Debian | Include user config
-  include_tasks: centos-user.yml
+  include_tasks: user.yml
   when:
     - Users is defined
 
@@ -143,11 +143,10 @@
     path: "{{ item.dest }}"
     state: "link"
   loop:
-    - {src: "/opt/remi/php{{ phpVersionDefault }}/root/usr/bin/php", dest: "/usr/bin/php"}
-    - {src: "/opt/remi/php{{ phpVersionDefault }}/root/usr/bin/php-cgi", dest: "/usr/bin/php-cgi"}
-    - {src: "/opt/remi/php{{ phpVersionDefault }}/root/usr/bin/pear", dest: "/usr/bin/php-pear"}
-    - {src: "/opt/remi/php{{ phpVersionDefault }}/root/usr/bin/phar.phar", dest: "/usr/bin/php-phar"}
+    - {src: "/usr/bin/php{{ phpVersionDefault }}", dest: "/usr/bin/php"}
   when: phpVersionDefault is defined
+  loop_control:
+    label: "Linking php version: '{{ item.src }}' to '{{ item.dest }}' "
 
 - name: PHP | Debian | Create log directories httpd
   file:
