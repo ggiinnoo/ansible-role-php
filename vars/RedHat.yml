@@ -50,7 +50,7 @@ phpRedHatFpmWrapperLocation73: /var/www/cgi-bin/php73.fcgi
 phpRedHatFpmWrapperLocation74: /var/www/cgi-bin/php74.fcgi
 phpRedHatFpmWrapperLocation80: /var/www/cgi-bin/php80.fcgi
 phpRedHatFpmWrapperLocation81: /var/www/cgi-bin/php81.fcgi
-phpRedHatFpmWrapperLocation82: /var/www/cgi-bin/php8w.fcgi
+phpRedHatFpmWrapperLocation82: /var/www/cgi-bin/php82.fcgi
 
 # cgi bin location
 phpRedHatCGIBinLocation: "/var/www/cgi-bin"

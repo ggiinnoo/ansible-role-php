@@ -114,8 +114,8 @@
     - {src: "{{ fpmConfLocationTemplate82 }}", dest: "{{ phpRedHatFpmConfLocation82 }}"}
     - {src: "{{ phpiniConfLocationTemplate82 }}", dest: "{{ phpRedHatPhpiniConfLocation82 }}"}
     - {src: "{{ fpmWrapperLocationTemplate82 }}", dest: "{{ phpRedHatFpmWrapperLocation82 }}"}
-  when: php81 is defined
-  notify: RedHatphp81Service
+  when: php82 is defined
+  notify: RedHatphp82Service
   loop_control:
     label: "Placing template: '{{ item.src }}' at: '{{ item.dest }}' "
 
