@@ -11,11 +11,12 @@ php71
 php72
 php73
 php74
+php80
+php81
+php82
 ```
 
-TODO
-----
--
+
 
 Requirements
 ------------
@@ -88,6 +89,8 @@ Example Playbook
       hosts: all
       roles:
         - ggiinnoo.php
+
+If you need a quick yml file to paste with a bare minimum of php packages take a look in the folder ``examples`` Just don't forget to change the user and groups.
 
 License
 -------

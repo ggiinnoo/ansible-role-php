@@ -1,0 +1,43 @@
+---
+
+phpVersionDefault: 82
+
+php82:
+  packages:
+    - php82
+    - php82-php-cli
+    - php82-php-common
+    - php82-php-fpm
+    - php82-php-pear
+    - php82-php-gd
+    - php82-php-intl
+    - php82-php-bcmath
+    - php82-php-opcache
+    - php82-php-pdo
+    - php82-runtime
+    - php82-php-mysqlnd
+    - php82-php-pecl-zip
+    - php82-php-process
+    - php82-php-xml
+    - php82-php-soap
+    - php82-php-imap
+    - php82-php-mbstring
+    - php82-php-pecl-redis5
+    - php82-php-sodium
+    - php82-php-pecl-imagick-im7
+    - php82-php-pecl-imagick-im7-devel
+  fpm:
+    fpmUser: ansible # Default value: 'nginx'
+    fpmGroup: ansible # Default value: 'nginx'
+    fpmListenOwner: ansible # Default value: 'nginx'
+    fpmListenGroup: ansible # Default value: 'nginx'
+    fpmListenMode: "0660"
+    fpmSock: /var/run/php82-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp82LogLocation }}www-slow.log"
+    fpmErrorLog: "{{ fpmPhp82LogLocation}}www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /opt/remi/php82/root/var/lib/php/session
+    fpmSessionSaveCache: /opt/remi/php82/root/var/lib/php/wsdlcache
+  default: true

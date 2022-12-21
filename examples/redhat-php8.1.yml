@@ -1,0 +1,43 @@
+---
+
+phpVersionDefault: 81
+
+php81:
+  packages:
+    - php81
+    - php81-php-cli
+    - php81-php-common
+    - php81-php-fpm
+    - php81-php-pear
+    - php81-php-gd
+    - php81-php-intl
+    - php81-php-bcmath
+    - php81-php-opcache
+    - php81-php-pdo
+    - php81-runtime
+    - php81-php-mysqlnd
+    - php81-php-pecl-zip
+    - php81-php-process
+    - php81-php-xml
+    - php81-php-soap
+    - php81-php-imap
+    - php81-php-mbstring
+    - php81-php-pecl-redis5
+    - php81-php-sodium
+    - php81-php-pecl-imagick-im7
+    - php81-php-pecl-imagick-im7-devel
+  fpm:
+    fpmUser: ansible # Default value: 'nginx'
+    fpmGroup: ansible # Default value: 'nginx'
+    fpmListenOwner: ansible # Default value: 'nginx'
+    fpmListenGroup: ansible # Default value: 'nginx'
+    fpmListenMode: "0660"
+    fpmSock: /var/run/php81-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp81LogLocation }}www-slow.log"
+    fpmErrorLog: "{{ fpmPhp81LogLocation}}www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /opt/remi/php81/root/var/lib/php/session
+    fpmSessionSaveCache: /opt/remi/php81/root/var/lib/php/wsdlcache
+  default: true

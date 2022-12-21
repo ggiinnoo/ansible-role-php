@@ -1,0 +1,38 @@
+---
+
+phpVersionDefault: 8.2
+
+php82:
+  packages:
+    - php8.2
+    - php8.2-cli
+    - php8.2-common
+    - php8.2-fpm
+    - php8.2-gd
+    - php8.2-intl
+    - php8.2-bcmath
+    - php8.2-opcache
+    - php8.2-pdo
+    - php8.2-mysqlnd
+    - php8.2-zip
+    - php8.2-xml
+    - php8.2-soap
+    - php8.2-imap
+    - php8.2-mbstring
+    - php8.2-redis
+    - php8.2-imagick
+  fpm:
+    fpmUser: ansible # Default value: 'nginx'
+    fpmGroup: ansible # Default value: 'nginx'
+    fpmListenOwner: ansible # Default value: 'nginx'
+    fpmListenGroup: ansible # Default value: 'nginx'
+    fpmListenMode: "0660"
+    fpmSock: /var/run/php82-fpm.sock
+    fpmListenAllowedClients: 127.0.0.1
+    fpmStatusPath: "/status"
+    fpmSlowLog: "{{ fpmPhp82LogLocation }}www-slow.log"
+    fpmErrorLog: "{{ fpmPhp82LogLocation}}www-error.log"
+    fpmSessionSaveHandler: files
+    fpmSessionsavePath: /opt/remi/php82/root/var/lib/php/session
+    fpmSessionSaveCache: /opt/remi/php82/root/var/lib/php/wsdlcache
+  default: true
