@@ -88,6 +88,6 @@
   vars:
     phpversion: php82
   loop: "{{ Users }}"
-  when: php81 is defined
+  when: php82 is defined
   notify: Debianphp82Service
 
